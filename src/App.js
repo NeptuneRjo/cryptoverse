@@ -1,5 +1,5 @@
 import './App.css';
-import { CoinData, Cryptos, Home, Nav, News } from './components';
+import { Cryptos, Home, Nav, News } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
