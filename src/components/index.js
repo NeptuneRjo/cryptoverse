@@ -1,0 +1,5 @@
+export { default as Nav } from './Nav/Nav'
+export { default as CoinData } from './CoinData/CoinData'
+export { default as Cryptos } from './Cryptos/Cryptos'
+export { default as Home } from './Home/Home'
+export { default as News } from './News/News'
