@@ -18,8 +18,8 @@ const [toggleMenu, setToggleMenu] = useState(false);
       </div>
       <div className="nav-mobile">
         {toggleMenu
-          ? <RiCloseLine color='#b9b9b9' size={27} onClick={() => setToggleMenu(false)} />
-          : <RiMenu3Line color='#00aaa9' size={27} onClick={() =>setToggleMenu(true)} /> 
+          ? <RiCloseLine color='#393E46' size={27} onClick={() => setToggleMenu(false)} />
+          : <RiMenu3Line color='#FFD369' size={27} onClick={() =>setToggleMenu(true)} /> 
         }
         {toggleMenu && (
           <div className="nav-mobile-links">
