@@ -1,8 +1,13 @@
 import './App.css';
 import { Cryptos, Home, Nav, News } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { fetchCoins, fetchNews } from './api'
 
 function App() {
+
+  fetchCoins();
+  fetchNews();
+
   return (
     <BrowserRouter>
       <div className="app-main">
