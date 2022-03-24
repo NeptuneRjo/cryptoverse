@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -14,16 +14,8 @@ import { useSelector } from 'react-redux';
 const Nav = () => {
 
   const [toggleMenu, setToggleMenu] = useState(false);
-  const navbarState = store.getState().navbar.currentNav;
+
   const navbar = useSelector((state) => state.navbar)
-
-  useEffect(() => {
-    console.log(navbarState);
-  })
-
-  const navClass = (className) => {
-    return navbar.currentNav === className;
-  }
 
   return (
     <div className="nav-main">
