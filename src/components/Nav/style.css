@@ -48,6 +48,10 @@
     padding-left: .25rem;
 }
 
+.nav-mobile-links-item.true {
+    border-left: solid 5px var(--off-white);
+}
+
 .nav-mobile-links-item:hover {
     border-left: solid 5px var(--off-white-hover);
 }
