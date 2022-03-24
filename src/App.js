@@ -5,8 +5,8 @@ import { fetchCoins, fetchNews } from './api'
 
 function App() {
 
-  fetchCoins();
-  fetchNews();
+  const coinData = fetchCoins();
+  const newsData = fetchNews();
 
   return (
     <BrowserRouter>
@@ -14,9 +14,27 @@ function App() {
         <Nav />
         <div className="app-content">
           <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route path='/crypto' element={<Cryptos />} />
-            <Route path='/news' element={<News />} />
+            <Route 
+              exact path='/' 
+              element={
+              <Home 
+                coinData={coinData} 
+                newsData={newsData} 
+              />
+            } 
+            />
+            <Route 
+              path='/crypto' 
+              element={
+              <Cryptos coinData={coinData} />
+            } 
+            />
+            <Route 
+              path='/news' 
+              element={
+              <News newsData={newsData} />
+            } 
+            />
           </Routes>
         </div>
       </div>
