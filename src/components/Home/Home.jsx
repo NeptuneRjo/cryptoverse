@@ -4,7 +4,11 @@ import { useFetchCoins } from '../../api'
 const Home = () => {
 
   const { data, isPending, error } = useFetchCoins()
-  const mainStats = data.data.stats
+  let mainStats;
+  
+  if (!isPending) {
+    mainStats = data.data.stats;
+  }
 
   return (
     <div className="home-main">
