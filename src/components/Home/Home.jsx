@@ -4,11 +4,11 @@ import './style.css';
 
 const Home = () => {
 
-  const url = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0';
+  const coinUrl = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0';
 
-  const host = 'coinranking1.p.rapidapi.com';
+  const coinHost = 'coinranking1.p.rapidapi.com';
 
-  const { data, isPending, error } = useFetch(url, host)
+  const { data, isPending, error } = useFetch(coinUrl, coinHost)
 
   let mainStats;
   let coins;
