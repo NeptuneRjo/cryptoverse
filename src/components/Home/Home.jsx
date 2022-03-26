@@ -1,10 +1,14 @@
 import React from 'react'
-import { useFetchCoins } from '../../api'
+import { default as useFetch } from '../../api/useFetch';
 import './style.css';
 
 const Home = () => {
 
-  const { data, isPending, error } = useFetchCoins()
+  const url = 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0';
+
+  const host = 'coinranking1.p.rapidapi.com';
+
+  const { data, isPending, error } = useFetch(url, host)
 
   let mainStats;
   let coins;
