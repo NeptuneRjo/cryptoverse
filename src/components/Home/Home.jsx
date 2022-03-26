@@ -7,9 +7,11 @@ const Home = () => {
   const { data, isPending, error } = useFetchCoins()
 
   let mainStats;
+  let coins;
   
   if (!isPending) {
     mainStats = data.data.stats;
+    coins = data.data.coins.slice(0, 10);
   }
 
   return (
@@ -36,7 +38,14 @@ const Home = () => {
             </div>
           </div>
           <div className="home-cryptos">
-
+            <h3>Top 10 Cryptocurrencies</h3>
+            <div className="home-cryptos-grid">
+              {
+                coins.map(item => {
+                  
+                })
+              }
+            </div>
           </div>
         </div>
       }
