@@ -1,6 +1,7 @@
 import React from 'react'
 import { default as useFetch } from '../../api/useFetch';
 import './style.css';
+import Cryptos from '../Cryptos/Cryptos';
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
   if (!isPending) {
     mainStats = data.data.stats;
     coins = data.data.coins.slice(0, 10);
+    console.log(coins)
   }
 
   return (
@@ -45,9 +47,12 @@ const Home = () => {
             <h3>Top 10 Cryptocurrencies</h3>
             <div className="home-cryptos-grid">
               {
-                coins.map(item => {
-                  
-                })
+                coins.map((coin, index) => (
+                  <Cryptos
+                    coinData={coin}
+                    key={index}
+                  />
+                ))
               }
             </div>
           </div>
