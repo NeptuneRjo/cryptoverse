@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import {
    RiMenu3Line, 
    RiCloseLine 
 } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
 
 import './style.css';
 
+import store from '../../store';
+import { useSelector } from 'react-redux';
+
 const Nav = () => {
 
-const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const navbar = useSelector((state) => state.navbar)
 
   return (
     <div className="nav-main">
@@ -18,18 +24,39 @@ const [toggleMenu, setToggleMenu] = useState(false);
       </div>
       <div className="nav-mobile">
         {toggleMenu
-          ? <RiCloseLine color='#b9b9b9' size={27} onClick={() => setToggleMenu(false)} />
-          : <RiMenu3Line color='#00aaa9' size={27} onClick={() =>setToggleMenu(true)} /> 
+          ? <RiCloseLine color='#393E46' size={27} onClick={() => setToggleMenu(false)} />
+          : <RiMenu3Line color='#FFD369' size={27} onClick={() =>setToggleMenu(true)} /> 
         }
         {toggleMenu && (
           <div className="nav-mobile-links">
-            <Link className='nav-mobile-links-item' to='/' >
+            <Link 
+              className={`nav-mobile-links-item ${navbar.currentNav === 'home'}`} 
+              to='/' 
+              onClick={
+                () => store.dispatch(
+                  { type: 'SET_NAVBAR', payload: 'home' }
+                )}
+              >
               Home
             </Link>
-            <Link className='nav-mobile-links-item' to='/crypto'>
+            <Link 
+              className={`nav-mobile-links-item ${navbar.currentNav === 'cryptos'}`} 
+              to='/'
+              onClick={
+                () => store.dispatch(
+                  { type: 'SET_NAVBAR', payload: 'cryptos' }
+                )}
+              >
               Cryptocurrencies
             </Link>
-            <Link className='nav-mobile-links-item' to='/news'>
+            <Link 
+              className={`nav-mobile-links-item ${navbar.currentNav === 'news'}`} 
+              to='/news'
+              onClick={
+                () => store.dispatch(
+                  { type: 'SET_NAVBAR', payload: 'news' }
+                )}
+              >
               News
             </Link>
           </div>
