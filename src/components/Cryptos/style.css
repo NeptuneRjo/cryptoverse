@@ -1,0 +1,43 @@
+.crypto-main {
+    border-bottom: solid 5px var(--contrast-color);
+    border-radius: 0px 0px 8px 8px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
+    background: var(--dark-gray);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.crypto-info > * {
+    background: var(--dark-gray);
+    color: var(--off-white);
+}
+
+.crypto-info {
+    margin: 1rem 0;
+    padding-left: 1rem;
+    background: transparent;
+}
+
+.crypto-info-number {
+    color: var(--off-white-hover);
+    font-weight: bold;
+}
+
+.crypto-info-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.crypto-icon {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+img {
+    background: transparent;
+    height: 35px;
+    width: 35px;
+}

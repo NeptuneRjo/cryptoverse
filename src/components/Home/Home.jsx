@@ -1,27 +1,28 @@
 import React from 'react'
-import { useFetchCoins } from '../../api'
 import './style.css';
+import Crypto from '../Cryptos/Crypto/Crypto';
 
-const Home = () => {
+const Home = ({ coinProps, newsProps }) => {
 
-  const { data, isPending, error } = useFetchCoins()
+  const coinData = coinProps.data;
+  const coinPending = coinProps.isPending;
 
   let mainStats;
   let coins;
   
-  if (!isPending) {
-    mainStats = data.data.stats;
-    coins = data.data.coins.slice(0, 10);
+  if (!coinPending) {
+    mainStats = coinData.data.stats;
+    coins = coinData.data.coins.slice(0, 10);
   }
 
   return (
     <div className="home-main">
-      {isPending &&
+      {coinPending &&
       <div className="home-stats-pending">
       Loading...
       </div>
       }
-      {!isPending &&
+      {!coinPending &&
         <div className="home-main-loaded">
           <div className="home-stats">
             <div className="home-stats-item" id="total-cryptos">
@@ -41,9 +42,12 @@ const Home = () => {
             <h3>Top 10 Cryptocurrencies</h3>
             <div className="home-cryptos-grid">
               {
-                coins.map(item => {
-                  
-                })
+                coins.map((coin, index) => (
+                  <Crypto
+                    coinData={coin}
+                    key={index}
+                  />
+                ))
               }
             </div>
           </div>

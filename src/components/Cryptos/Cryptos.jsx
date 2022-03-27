@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './style.css';
 
 const Cryptos = () => {
+
   return (
-    <div>Cryptos</div>
+    <div className="cryptos-main">
+      cryptos
+    </div>
   )
 }
 
