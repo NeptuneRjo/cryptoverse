@@ -3,23 +3,23 @@ import React from 'react';
 const Crypto = ({ coinData, index }) => {
 
   return (
-    <div className="cryptos-main" index={index} >
-      <div className="cryptos-info">
-        <div className="cryptos-info-number">
+    <div className="crypto-main" index={index} >
+      <div className="crypto-info">
+        <div className="crypto-info-number">
           {coinData.rank}.
         </div>
-        <div className="cryptos-info-name">
+        <div className="crypto-info-name">
           {coinData.name}
         </div>
-        <div className="cryptos-info-price">
+        <div className="crypto-info-price">
           ${Number(coinData.price).toFixed(2)}
         </div>
       </div>
-      <div className="cryptos-icon">
+      <div className="crypto-icon">
         <img 
           src={coinData.iconUrl} 
           alt="Cryptocurrency icon" 
-          className="cryptos-icon-img"
+          className="crypto-icon-img"
         />
       </div>
     </div>
