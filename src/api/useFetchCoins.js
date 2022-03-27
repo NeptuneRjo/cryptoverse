@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useFetchCoins = () => {
+const useCoinFetch = () => {
 
     const options = {
         method: 'GET',
@@ -44,4 +44,4 @@ const useFetchCoins = () => {
     return { data, isPending, error };
 }
 
-export default useFetchCoins
+export default useCoinFetch
