@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { default as Crypto } from './Crypto/Crypto';
-import { useState } from 'react';
 import store from '../../store';
 
 const Cryptos = ({ coinProps }) => {
