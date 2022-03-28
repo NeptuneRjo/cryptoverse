@@ -1,3 +1,70 @@
+.cryptos-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.cryptos-header {
+    margin: 1rem 0;
+    color: var(--off-white);
+    
+    display: flex;
+    justify-content: center;
+}
+
+.cryptos-header h3 {
+    padding-bottom: .25rem;
+    border-bottom: solid 3px var(--contrast-color);
+    width: fit-content;
+}
+
+.cryptos-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+#search-form {
+    border: solid 1px var(--off-white);
+    /* border: transparent; */
+    /* border-bottom: solid 5px var(--contrast-color); */
+    /* border-radius: 0px 0px 8px 8px; */
+
+    padding: .45rem .5rem;;
+    outline: none;
+    margin-bottom: .35rem;
+    color: var(--contrast-color);
+    font-weight: bold;
+}
+
+#search-form::placeholder {
+    color: var(--off-white);
+}
+
+#search-form:focus {
+    border: solid 1px var(--contrast-color);
+}
+
+.cryptos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0 1rem;
+    padding: 1rem 0;
+}
+
+.cryptos-totop {
+    text-align: center;
+    padding: 1rem;
+    color: var(--contrast-color);
+    font-weight: bold;
+}
+
+.cryptos-totop span:hover {
+    cursor: pointer;
+    border-bottom: solid 1px var(--contrast-color);
+}
+
 .crypto-main {
     border-bottom: solid 5px var(--contrast-color);
     border-radius: 0px 0px 8px 8px;
