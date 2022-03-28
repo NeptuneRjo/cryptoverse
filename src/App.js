@@ -46,7 +46,9 @@ function App() {
             <Route 
               path='/crypto' 
               element={
-              <Cryptos />
+              <Cryptos 
+                coinProps={coinProps}
+              />
             } 
             />
             <Route 
