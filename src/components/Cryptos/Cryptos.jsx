@@ -28,9 +28,16 @@ const Cryptos = ({ coinProps }) => {
             .toLowerCase()
             .indexOf(q.toLocaleLowerCase()) > -1
         )
-      })
-    })
-  }
+      });
+    });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   if (coinPending) {
     return (
@@ -39,13 +46,16 @@ const Cryptos = ({ coinProps }) => {
   }
   return (
     <div className="cryptos-main">
+      <div className="cryptos-header">
+        <h3>Top 50 Cryptocurrencies</h3>
+      </div>
       <div className="cryptos-search">
         <label htmlFor="search-form">
           <input 
             type="search" 
             name="search-form" 
             id="search-form"
-            placeholder='Search for a coin...' 
+            placeholder='Search for a coin' 
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -60,6 +70,9 @@ const Cryptos = ({ coinProps }) => {
             />
           ))
         }
+      </div>
+      <div className="cryptos-totop">
+        <span onClick={scrollToTop}>Back to top</span>
       </div>
     </div>
   )
