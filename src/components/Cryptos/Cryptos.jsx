@@ -2,9 +2,13 @@ import React from 'react';
 import './style.css';
 import { default as Crypto } from './Crypto/Crypto';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import store from '../../store';
 
 const Cryptos = ({ coinProps }) => {
+
+  store.dispatch(
+    { type: 'SET_NAVBAR', payload: 'cryptos' }
+  )
 
   const coinPending = coinProps.isPending;
 

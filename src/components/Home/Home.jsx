@@ -1,8 +1,13 @@
 import React from 'react'
 import './style.css';
 import Crypto from '../Cryptos/Crypto/Crypto';
+import store from '../../store';
 
 const Home = ({ coinProps, newsProps }) => {
+
+  store.dispatch(
+    { type: 'SET_NAVBAR', payload: 'home' }
+  )
 
   const coinData = coinProps.data;
   const coinPending = coinProps.isPending;
