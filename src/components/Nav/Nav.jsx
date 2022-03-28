@@ -41,7 +41,7 @@ const Nav = () => {
             </Link>
             <Link 
               className={`nav-mobile-links-item ${navbar.currentNav === 'cryptos'}`} 
-              to='/'
+              to='/crypto'
               onClick={
                 () => store.dispatch(
                   { type: 'SET_NAVBAR', payload: 'cryptos' }
