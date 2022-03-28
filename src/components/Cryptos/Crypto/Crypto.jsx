@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Crypto = ({ coinData, index }) => {
+const Crypto = ({ coinData }) => {
 
   return (
     <a href={coinData.coinrankingUrl} >
-      <div className="crypto-main" index={index} >
+      <div className="crypto-main" >
         <div className="crypto-info">
           <div className="crypto-info-number">
             {coinData.rank}.
