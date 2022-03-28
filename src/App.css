@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    background: var(--background-color);
+    font-family: var(--font-family);
+}
+
+.app-main {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    min-height: 100vh;
+}
