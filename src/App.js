@@ -54,7 +54,9 @@ function App() {
             <Route 
               path='/news' 
               element={
-              <News />
+              <News 
+                newsProps={newsProps}
+              />
             } 
             />
           </Routes>
