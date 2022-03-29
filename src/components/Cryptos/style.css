@@ -26,9 +26,6 @@
 
 #search-form {
     border: solid 1px var(--off-white);
-    /* border: transparent; */
-    /* border-bottom: solid 5px var(--contrast-color); */
-    /* border-radius: 0px 0px 8px 8px; */
 
     padding: .45rem .5rem;;
     outline: none;
