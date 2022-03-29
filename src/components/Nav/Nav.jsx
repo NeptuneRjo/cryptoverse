@@ -17,6 +17,12 @@ const Nav = () => {
 
   const navbar = useSelector((state) => state.navbar)
 
+  const updateNavState = (payloadToSend) => {
+    store.dispatch(
+      { type: 'SET_NAVBAR', payload: payloadToSend }
+    )
+  }
+
   return (
     <div className="nav-main">
       <div className="nav-desktop">
@@ -32,30 +38,21 @@ const Nav = () => {
             <Link 
               className={`nav-mobile-links-item ${navbar.currentNav === 'home'}`} 
               to='/' 
-              onClick={
-                () => store.dispatch(
-                  { type: 'SET_NAVBAR', payload: 'home' }
-                )}
+              onClick={() => updateNavState('home')}
               >
               Home
             </Link>
             <Link 
               className={`nav-mobile-links-item ${navbar.currentNav === 'cryptos'}`} 
               to='/crypto'
-              onClick={
-                () => store.dispatch(
-                  { type: 'SET_NAVBAR', payload: 'cryptos' }
-                )}
+              onClick={() => updateNavState('cryptos')}
               >
               Cryptocurrencies
             </Link>
             <Link 
               className={`nav-mobile-links-item ${navbar.currentNav === 'news'}`} 
               to='/news'
-              onClick={
-                () => store.dispatch(
-                  { type: 'SET_NAVBAR', payload: 'news' }
-                )}
+              onClick={() => updateNavState('news')}
               >
               News
             </Link>
