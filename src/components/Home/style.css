@@ -42,7 +42,7 @@
     background: transparent;
 }
 
-.home-cryptos h3 {
+.home-cryptos h3, .home-news h3 {
     font-size: 24px;
     text-align: center;
     margin: 1rem 0;
@@ -55,4 +55,9 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     margin: 0 1rem;
+}
+
+.home-news {
+    display: flex;
+    flex-direction: column;
 }
