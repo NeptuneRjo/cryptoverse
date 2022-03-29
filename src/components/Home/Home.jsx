@@ -3,13 +3,10 @@ import './style.css';
 import Crypto from '../Cryptos/Crypto/Crypto';
 import store from '../../store';
 import NewsItem from '../News/NewsItem/NewsItem';
+import { useEffect } from 'react';
 
 const Home = ({ coinProps, newsProps }) => {
-
-  store.dispatch(
-    { type: 'SET_NAVBAR', payload: 'home' }
-  )
-
+  
   const coinData = coinProps.data;
   const coinPending = coinProps.isPending;
 
@@ -28,6 +25,12 @@ const Home = ({ coinProps, newsProps }) => {
   if (!newsPending) {
     news = newsData.news[0];
   }
+
+  useEffect(() => {
+    store.dispatch(
+      { type: 'SET_NAVBAR', payload: 'home' }
+    )  
+  }, [])
 
   return (
     <div className="home-main">
