@@ -32,14 +32,16 @@ const Home = ({ coinProps, newsProps }) => {
     )  
   }, [])
 
+
+  if (coinPending || newsPending) {
+    return (
+      <div className="home-stats-pending">
+        Loading...
+      </div>
+    )
+  }
   return (
     <div className="home-main">
-      {(coinPending || newsPending) &&
-      <div className="home-stats-pending">
-      Loading...
-      </div>
-      }
-      {(!coinPending && !newsPending) &&
         <div className="home-main-loaded">
           <div className="home-stats">
             <div className="home-stats-item" id="total-cryptos">
@@ -75,7 +77,6 @@ const Home = ({ coinProps, newsProps }) => {
             </div>
           </div>
         </div>
-      }
     </div>
   )
 }
