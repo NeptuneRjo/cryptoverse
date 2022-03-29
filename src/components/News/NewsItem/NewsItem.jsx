@@ -21,7 +21,7 @@ const NewsItem = ({ news }) => {
         <a href={news.articleUrl}>
             <div className="newsitem-main">
                 <div className="newsitem-hero">
-                   <img src={checkImageUrl(image)} alt="" />
+                   <img src={checkImageUrl(image)} alt="article image" />
                 </div>
                 <div className="newsitem-info">
                     <div className="newsitem-header">
@@ -30,15 +30,18 @@ const NewsItem = ({ news }) => {
                     <div className="newsitem-date">
                         {news.datestamp}
                     </div>
-                    <div className="newsitem-tags">
-                        {
-                            news.categories.map((tag, index) => (
-                                <p key={index}>{tag}</p>
-                            ))
-                        }
+                    <div className="newsitem-info-more">
+                        <div className="newsitem-tags">
+                            <p>tags:</p>
+                            {
+                                news.categories.map((tag, index) => (
+                                    <p key={index}>{tag}</p>
+                                ))
+                            }
+                        </div>
+                        <div className="newsitem-click">click to view more...</div>
+                        <div className="newsitem-tap">tap to view more...</div>
                     </div>
-                    <div className="newsitem-click">click to view more...</div>
-                    <div className="newsitem-tap">tap to view more...</div>
                 </div>
             </div>
         </a>
