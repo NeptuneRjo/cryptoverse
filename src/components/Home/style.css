@@ -6,6 +6,20 @@
     padding-bottom: 3rem;
 }
 
+.home-header {
+    margin: 1rem 0;
+    color: var(--off-white);
+    
+    display: flex;
+    justify-content: center;
+}
+
+.home-header h3 {
+    padding-bottom: .25rem;
+    border-bottom: solid 3px var(--contrast-color);
+    width: fit-content;
+}
+
 .home-stats {
     background: var(--contrast-color);
 
@@ -60,4 +74,12 @@
 .home-news {
     display: flex;
     flex-direction: column;
+}
+
+.scrollable {
+    overflow-y: scroll;
+}
+
+.disable-scroll {
+    overflow-y: hidden;
 }

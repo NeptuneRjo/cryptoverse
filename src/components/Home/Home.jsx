@@ -41,8 +41,11 @@ const Home = ({ coinProps, newsProps }) => {
     )
   }
   return (
-    <div className="home-main">
+    <div className="home-main" id='scrollable'>
         <div className="home-main-loaded">
+          <div className="home-header">
+            <h3>Home</h3>
+          </div>
           <div className="home-stats">
             <div className="home-stats-item" id="total-cryptos">
               {mainStats.total}
