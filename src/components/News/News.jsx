@@ -59,7 +59,7 @@ const News = ({ newsProps }) => {
             type="search" 
             name="search-form" 
             id="news-search-form" 
-            placeholder='Search for a tag'
+            placeholder='Search by a tag'
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
