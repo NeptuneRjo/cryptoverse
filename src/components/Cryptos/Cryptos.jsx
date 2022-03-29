@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { default as Crypto } from './Crypto/Crypto';
 import store from '../../store';
 
 const Cryptos = ({ coinProps }) => {
-
-  store.dispatch(
-    { type: 'SET_NAVBAR', payload: 'cryptos' }
-  )
 
   const coinPending = coinProps.isPending;
 
@@ -41,6 +37,12 @@ const Cryptos = ({ coinProps }) => {
       behavior: 'smooth'
     });
   };
+
+  useEffect(() => {
+    store.dispatch(
+      { type: 'SET_NAVBAR', payload: 'cryptos' }
+    )
+  }, [])
 
   if (coinPending) {
     return (
