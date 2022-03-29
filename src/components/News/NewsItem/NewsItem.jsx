@@ -31,14 +31,6 @@ const NewsItem = ({ news }) => {
                         {news.datestamp}
                     </div>
                     <div className="newsitem-info-more">
-                        <div className="newsitem-tags">
-                            <p>tags:</p>
-                            {
-                                news.categories.map((tag, index) => (
-                                    <p key={index}>{tag}</p>
-                                ))
-                            }
-                        </div>
                         <div className="newsitem-click">click to view more...</div>
                         <div className="newsitem-tap">tap to view more...</div>
                     </div>
