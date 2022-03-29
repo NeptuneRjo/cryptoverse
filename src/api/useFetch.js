@@ -6,7 +6,7 @@ const useFetch = (url, host) => {
         method: 'GET',
         headers: {
             'X-RapidAPI-Host': host,
-            'X-RapidAPI-Key': '8ab56c9046mshf9298833651359cp1b0994jsndcc03fa4cad9'
+            'X-RapidAPI-Key': process.env.REACT_APP_X_RPD_KY
         }
     };
   
