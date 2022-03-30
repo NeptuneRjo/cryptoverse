@@ -24,11 +24,11 @@ const Nav = () => {
   }
 
   function disableScroll(){
-    document.getElementById('scrollable').classList.add('disable-scroll');
+    document.body.style.overflow = "hidden"
   }
   
   function enableScroll(){
-    document.getElementById('scrollable').classList.remove('disable-scroll');
+    document.body.style.overflow = "visible"
   }
 
   return (
@@ -36,8 +36,8 @@ const Nav = () => {
       <div className={`nav-mobile-main ${toggleMenu}`}>
         <div className="nav-mobile-toggle">
           {toggleMenu
-            ? <RiCloseLine color='#393e46' size={27} onClick={() => {setToggleMenu(false)}} />
-            : <RiMenu3Line color='#ffd369' size={27} onClick={() => {setToggleMenu(true)}} />
+            ? <RiCloseLine color='#393e46' size={27} onClick={() => {setToggleMenu(false); enableScroll()}} />
+            : <RiMenu3Line color='#ffd369' size={27} onClick={() => {setToggleMenu(true); disableScroll()}} />
           }
         </div>
         {toggleMenu && (
@@ -85,44 +85,6 @@ const Nav = () => {
 
       </div>
     </>
-
-    // <div className={`nav-main ${toggleMenu}`}>
-    //   <div className="nav-desktop">
-
-    //   </div>
-    //   <div className={`nav-mobile ${toggleMenu}`}>
-    //     {toggleMenu
-    //       ? <RiCloseLine color='#393E46' size={27} onClick={() => {setToggleMenu(false); disableScroll()}} />
-    //       : <RiMenu3Line color='#FFD369' size={27} onClick={() => {setToggleMenu(true); enableScroll()}} /> 
-    //     }
-    //     {toggleMenu && (
-    //       <div className="nav-mobile-links">
-    //         <Link 
-    //           className={`nav-mobile-links-item ${navbar.currentNav === 'home'}`} 
-    //           to='/' 
-    //           onClick={() => updateNavState('home')}
-    //           >
-    //           <div>Home</div>
-    //           {/* Home */}
-    //         </Link>
-    //         <Link 
-    //           className={`nav-mobile-links-item ${navbar.currentNav === 'cryptos'}`} 
-    //           to='/crypto'
-    //           onClick={() => updateNavState('cryptos')}
-    //           >
-    //           <div>Cryptocurrencies</div>
-    //         </Link>
-    //         <Link 
-    //           className={`nav-mobile-links-item ${navbar.currentNav === 'news'}`} 
-    //           to='/news'
-    //           onClick={() => updateNavState('news')}
-    //           >
-    //           <div>News</div>
-    //         </Link>
-    //       </div>
-    //     )}
-    //   </div>
-    // </div>
   )
 }
 
