@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Crypto = ({ coinData }) => {
 
   return (
-    <a href={coinData.coinrankingUrl} >
+    <Link to={`/crypto/${coinData.uuid}`} >
       <div className="crypto-main" >
         <div className="crypto-info">
           <div className="crypto-info-number">
@@ -24,7 +25,7 @@ const Crypto = ({ coinData }) => {
           />
         </div>
       </div>
-    </ a>
+    </ Link>
   )
 }
 
