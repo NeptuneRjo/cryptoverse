@@ -1,7 +1,8 @@
 import './App.css';
 import { Cryptos, Home, Nav, News } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { default as useFetch } from './api/useFetch';
+import useFetch from './api/useFetch';
+import CoinDetails from './components/Cryptos/CoinDetails/CoinDetails';
 
 function App() {
 
@@ -50,6 +51,12 @@ function App() {
                 coinProps={coinProps}
               />
             } 
+            />
+            <Route 
+              path='/crypto/:coinId'
+              element={
+                <CoinDetails />
+              }
             />
             <Route 
               path='/news' 
