@@ -33,15 +33,14 @@ const Nav = () => {
 
   return (
     <>
-      <div className={`nav-mobile-main ${toggleMenu}`}>
+      <div className='nav-mobile-main'>
         <div className="nav-mobile-toggle">
           {toggleMenu
             ? <RiCloseLine color='#393e46' size={27} onClick={() => {setToggleMenu(false); enableScroll()}} />
             : <RiMenu3Line color='#ffd369' size={27} onClick={() => {setToggleMenu(true); disableScroll()}} />
           }
         </div>
-        {toggleMenu && (
-          <div className="nav-mobile-menu">
+          <div className={`nav-mobile-menu ${toggleMenu}`}>
               <div className="nav-mobile-menu-item">
                 <Link
                   className={
@@ -79,7 +78,6 @@ const Nav = () => {
                 </Link>
               </div>
           </div>  
-        )}
       </div>
       <div className="nav-desktop-main">
 
