@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import store from '../../store'
 import NewsItem from './NewsItem/NewsItem'
+import Spinner from '../../animations/Spinner/Spinner';
 
 const News = ({ newsProps }) => {
 
@@ -45,7 +46,9 @@ const News = ({ newsProps }) => {
 
   if (newsPending) {
     return (
-      <div className="news-pending">Loading...</div>
+      <div className="news-pending">
+        <Spinner speed={5} customText={'Loading...'} />
+      </div>
     )
   }
   return (

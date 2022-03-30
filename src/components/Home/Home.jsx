@@ -4,6 +4,7 @@ import Crypto from '../Cryptos/Crypto/Crypto';
 import store from '../../store';
 import NewsItem from '../News/NewsItem/NewsItem';
 import { useEffect } from 'react';
+import Spinner from '../../animations/Spinner/Spinner';
 
 const Home = ({ coinProps, newsProps }) => {
   
@@ -36,7 +37,7 @@ const Home = ({ coinProps, newsProps }) => {
   if (coinPending || newsPending) {
     return (
       <div className="home-stats-pending">
-        Loading...
+        <Spinner speed={5} customText={'Loading...'} />
       </div>
     )
   }

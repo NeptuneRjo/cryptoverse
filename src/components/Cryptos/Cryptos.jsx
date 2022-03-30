@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import { default as Crypto } from './Crypto/Crypto';
 import store from '../../store';
+import Spinner from '../../animations/Spinner/Spinner';
 
 const Cryptos = ({ coinProps }) => {
 
@@ -46,7 +47,9 @@ const Cryptos = ({ coinProps }) => {
 
   if (coinPending) {
     return (
-      <div className="cryptos-pending">Loading...</div>
+      <div className="cryptos-pending">
+        <Spinner speed={5} customText={'Loading...'} />
+      </div>
     )
   }
   return (
