@@ -41,7 +41,7 @@ const Home = ({ coinProps, newsProps }) => {
     )
   }
   return (
-    <div className="home-main" id='scrollable'>
+    <div className="home-main">
         <div className="home-main-loaded">
           <div className="home-header">
             <h3>Home</h3>

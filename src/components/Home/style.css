@@ -75,11 +75,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.scrollable {
-    overflow-y: scroll;
-}
-
-.disable-scroll {
-    overflow-y: hidden;
-}
