@@ -51,7 +51,7 @@ const Nav = () => {
                   to='/'
                   onClick={() => updateNavState('home')}
                 >
-                  <div>Home</div>
+                  <div onClick={() => {setToggleMenu(false); enableScroll()}}>Home</div>
                 </Link>
               </div>
               <div className="nav-mobile-menu-item">
@@ -63,7 +63,7 @@ const Nav = () => {
                   to='/crypto'
                   onClick={() => updateNavState('cryptos')}
                 >
-                  <div>Cryptos</div>
+                  <div onClick={() => {setToggleMenu(false); enableScroll()}}>Cryptos</div>
                 </Link>
               </div>
               <div className="nav-mobile-menu-item">
@@ -75,7 +75,7 @@ const Nav = () => {
                   to='/news'
                   onClick={() => updateNavState('news')}
                 >
-                  <div>News</div>
+                  <div onClick={() => {setToggleMenu(false); enableScroll()}}>News</div>
                 </Link>
               </div>
           </div>  
