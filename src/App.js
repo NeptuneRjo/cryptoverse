@@ -55,7 +55,9 @@ function App() {
             <Route 
               path='/crypto/:coinId'
               element={
-                <CoinDetails />
+                <CoinDetails 
+                  coinProps={coinProps}
+                />
               }
             />
             <Route 
