@@ -5,6 +5,7 @@ import store from '../../store';
 import NewsItem from '../News/NewsItem/NewsItem';
 import { useEffect } from 'react';
 import Spinner from '../../animations/Spinner/Spinner';
+import millify from 'millify';
 
 const Home = ({ coinProps, newsProps }) => {
   
@@ -53,7 +54,7 @@ const Home = ({ coinProps, newsProps }) => {
               <p>Total Cryptocurrencies</p>
             </div>
             <div className="home-stats-item" id="24hr-volume">
-              {mainStats.total24hVolume}
+              ${millify(mainStats.total24hVolume)}
               <p>Total 24hr Volume</p>
             </div>
             <div className="home-stats-item" id="total-exchanges">

@@ -1,0 +1,32 @@
+.details-main {
+    display: flex;  
+    flex-direction: column;
+
+    border: solid 1px white;
+}
+
+.details-header {
+    margin: 1rem 0;
+    color: var(--off-white);
+    
+    display: flex;
+    justify-content: center;
+}
+
+.details-header h3 {
+    padding-bottom: .25rem;
+    border-bottom: solid 3px var(--contrast-color);
+    width: fit-content;
+}
+
+.details-chart {
+    border: solid 1px white;
+    display: flex;
+    justify-content: center;
+}
+
+#myChart {
+    height: 100%;
+    width: 100%;
+    border: solid 1px white;
+}
