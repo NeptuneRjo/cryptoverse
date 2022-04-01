@@ -14,7 +14,6 @@ const News = ({ newsProps }) => {
 
   if (!newsPending) {
     articles = newsProps.data.news
-    console.log(articles);
   }
 
   const search = (items) => {
