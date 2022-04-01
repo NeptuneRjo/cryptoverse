@@ -5,7 +5,7 @@ import useFetch from '../../../api/useFetch';
 import './style.css';
 import millify from 'millify';
 
-const CoinDetails = ({ coinProps }) => {
+const CoinDetails = () => {
     const { coinId } = useParams();
     const parse = require('html-react-parser');
 
@@ -21,8 +21,6 @@ const CoinDetails = ({ coinProps }) => {
 
     if (!isPending) {
         coin = data?.data?.coin;
-
-        console.log(coin)
     }
 
     const toCoinPrice = (coinPrice) => {
