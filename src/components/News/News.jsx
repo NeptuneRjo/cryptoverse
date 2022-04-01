@@ -76,6 +76,7 @@ const News = () => {
             <NewsItem
               news={news}
               key={index}
+              id={index}
             />
           ))
         }
