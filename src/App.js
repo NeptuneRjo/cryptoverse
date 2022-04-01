@@ -3,6 +3,7 @@ import { Cryptos, Home, Nav, News } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import useFetch from './api/useFetch';
 import CoinDetails from './components/Cryptos/CoinDetails/CoinDetails';
+import NewsPage from './components/News/NewsPage/NewsPage';
 
 function App() {
 
@@ -67,6 +68,12 @@ function App() {
                 newsProps={newsProps}
               />
             } 
+            />
+            <Route  
+              path='/news/:newsId'
+              element={
+                <NewsPage />
+              }
             />
           </Routes>
         </div>
