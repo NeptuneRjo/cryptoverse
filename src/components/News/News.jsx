@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import store from '../../store'
 import NewsItem from './NewsItem/NewsItem'
 import Spinner from '../../animations/Spinner/Spinner';
+import { useSelector } from 'react-redux';
 
-const News = ({ newsProps }) => {
+const News = () => {
 
-  const newsPending = newsProps.isPending;
+  const newsApi = useSelector((state) => state.newsApi)
+
+  const newsPending = newsApi.isPending;
 
   const [q, setQ] = useState('')
   const [searchParam] = useState(['categories'])
@@ -13,7 +16,7 @@ const News = ({ newsProps }) => {
   let articles;
 
   if (!newsPending) {
-    articles = newsProps.data.news
+    articles = newsApi.data.news
   }
 
   const search = (items) => {
