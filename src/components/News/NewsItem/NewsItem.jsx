@@ -22,7 +22,7 @@ const NewsItem = ({ news }) => {
     const pageUrl = news.title.toLowerCase().replace(/ /g, '-')
     .replace(/[^\w-]+/g, '');
 
-    console.log(news);
+    // console.log(news);
 
     return (
         <Link to={`/news/${pageUrl}`}>
