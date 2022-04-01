@@ -12,14 +12,12 @@ const CoinDetails = () => {
 
     const api = {
         coinUrl: `https://coinranking1.p.rapidapi.com/coin/${coinId}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`,
-
         coinHost: 'coinranking1.p.rapidapi.com'
     }
 
     useFetch(api.coinUrl, api.coinHost, 'COINDETAILS')
-
     const coinApi = useSelector((state) => state.coinDetailsApi)
-    console.log(coinApi)
+
     let coin;
 
     if (!coinApi.isPending) {
