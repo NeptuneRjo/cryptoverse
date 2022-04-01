@@ -6,14 +6,15 @@ import coinReducer from './api/reducers/Coins/coinReducer';
 import coinDetailsReducer from './api/reducers/Coins/coinDetailsReducer';
 
 import newsReducer from './api/reducers/News/newsReducer';
-import newsDetailsReducer from './api/reducers/News/newsDetailsReducer';
+
+import newsPageReducer from './components/News/NewsPage/newsPageReducer';
 
 const rootReducer = combineReducers({
     navbar: navReducer,
     coinApi: coinReducer,
     coinDetailsApi: coinDetailsReducer,
     newsApi: newsReducer,
-    newsDetailsApi: newsDetailsReducer,
+    newsIndex: newsPageReducer
 })
 
 export default rootReducer;
