@@ -6,25 +6,27 @@ import NewsItem from '../News/NewsItem/NewsItem';
 import { useEffect } from 'react';
 import Spinner from '../../animations/Spinner/Spinner';
 import millify from 'millify';
+import { useSelector } from 'react-redux';
 
-const Home = ({ coinProps, newsProps }) => {
+const Home = () => {
   
-  const coinData = coinProps.data;
-  const coinPending = coinProps.isPending;
+  const coinApi = useSelector((state) => state.coinApi);
+  const newsApi = useSelector((state) => state.newsApi);
 
-  const newsData = newsProps.data
-  const newsPending = newsProps.isPending;
+  const coinData = coinApi.data;
+  const coinPending = coinApi.isPending;
+
+  const newsData = newsApi.data
+  const newsPending = newsApi.isPending;
 
   let mainStats;
   let coins;
   let news;
   
-  if (!coinPending) {
+  if (!coinPending && !newsPending) {
     mainStats = coinData.data.stats;
     coins = coinData.data.coins.slice(0, 10);
-  }
 
-  if (!newsPending) {
     news = newsData.news[0];
   }
 
