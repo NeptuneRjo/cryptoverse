@@ -21,6 +21,8 @@ const CoinDetails = ({ coinProps }) => {
 
     if (!isPending) {
         coin = data?.data?.coin;
+
+        console.log(coin)
     }
 
     const toCoinPrice = (coinPrice) => {
@@ -95,7 +97,11 @@ const CoinDetails = ({ coinProps }) => {
                     <h3>Supply Information</h3>
                     <div className="details-supply">
                         <p>Total supply</p>
-                        {millify(coin.supply.total)}
+                        {coin.supply.total === null
+                            ? <>0</>
+                            : <>{millify(coin.supply.total)}</>
+                        }
+
                     </div>
                     <div className="details-circulating">
                         <p>Circulating supply</p>
