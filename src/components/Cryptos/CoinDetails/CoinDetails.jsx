@@ -25,7 +25,7 @@ const CoinDetails = () => {
 
     const toCoinPrice = (coinPrice) => {
         if (Number(coinPrice) < 1) {
-            return Number(coinPrice).toFixed(8)
+            return Number(coinPrice).toFixed(12)
         }
         return Number(coinPrice).toFixed(2);
     }
