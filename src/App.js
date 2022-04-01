@@ -15,20 +15,8 @@ function App() {
     newsHost: 'crypto-open-news.p.rapidapi.com'
   }
 
-  const { data: coinData, isPending: coinIsPending, error: coinError } = useFetch(api.coinUrl, api.coinHost);
-  const { data: newsData, isPending: newsIsPending, error: newsError } = useFetch(api.newsUrl, api.newsHost);
-
-  const coinProps = {
-    data: coinData,
-    isPending: coinIsPending,
-    error: coinError
-  }
-
-  const newsProps = {
-    data: newsData,
-    isPending: newsIsPending,
-    error: newsError
-  }
+  useFetch(api.coinUrl, api.coinHost, 'COIN');
+  useFetch(api.newsUrl, api.newsHost, 'NEWS')
 
   return (
     <BrowserRouter>
@@ -39,34 +27,25 @@ function App() {
             <Route 
               exact path='/' 
               element={
-              <Home 
-                coinProps={coinProps}
-                newsProps={newsProps}
-              />
+              <Home />
             } 
             />
             <Route 
               path='/crypto' 
               element={
-              <Cryptos 
-                coinProps={coinProps}
-              />
+              <Cryptos />
             } 
             />
             <Route 
               path='/crypto/:coinId'
               element={
-                <CoinDetails 
-                  coinProps={coinProps}
-                />
+                <CoinDetails />
               }
             />
             <Route 
               path='/news' 
               element={
-              <News 
-                newsProps={newsProps}
-              />
+              <News />
             } 
             />
             <Route  
