@@ -1,5 +1,7 @@
 import React from 'react'
 import '../style.css';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const NewsItem = ({ news }) => {
 
@@ -16,9 +18,14 @@ const NewsItem = ({ news }) => {
         }
         return url
     }
+ 
+    const pageUrl = news.title.toLowerCase().replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
+
+    console.log(news);
 
     return (
-        <a href={news.articleUrl}>
+        <Link to={`/news/${pageUrl}`}>
             <div className="newsitem-main">
                 <div className="newsitem-hero">
                    <img src={checkImageUrl(image)} alt="article image" />
@@ -36,7 +43,7 @@ const NewsItem = ({ news }) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     )
 }
 
