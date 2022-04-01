@@ -4,6 +4,7 @@ import Spinner from '../../../animations/Spinner/Spinner';
 import useFetch from '../../../api/useFetch';
 import './style.css';
 import millify from 'millify';
+import { useSelector } from 'react-redux';
 
 const CoinDetails = () => {
     const { coinId } = useParams();
@@ -15,12 +16,14 @@ const CoinDetails = () => {
         coinHost: 'coinranking1.p.rapidapi.com'
     }
 
-    const {data, isPending, error} = useFetch(api.coinUrl, api.coinHost)
+    useFetch(api.coinUrl, api.coinHost, 'COINDETAILS')
 
+    const coinApi = useSelector((state) => state.coinDetailsApi)
+    console.log(coinApi)
     let coin;
 
-    if (!isPending) {
-        coin = data?.data?.coin;
+    if (!coinApi.isPending) {
+        coin = coinApi.data.data.coin;
     }
 
     const toCoinPrice = (coinPrice) => {
@@ -37,7 +40,7 @@ const CoinDetails = () => {
         });
     };
 
-    if (!error === null) {
+    if (!coinApi.error === null) {
         return (
             <div className="details-error">
                 <h4>Error</h4>
@@ -45,7 +48,7 @@ const CoinDetails = () => {
             </div>
         )
     }
-    else if (isPending) {
+    else if (coinApi.isPending) {
         return (
             <div className="details-loading">
                 <Spinner speed={5} customText={'Loading...'} />

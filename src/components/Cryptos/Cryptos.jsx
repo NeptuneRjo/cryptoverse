@@ -3,10 +3,13 @@ import './style.css';
 import { default as Crypto } from './Crypto/Crypto';
 import store from '../../store';
 import Spinner from '../../animations/Spinner/Spinner';
+import { useSelector } from 'react-redux';
 
-const Cryptos = ({ coinProps }) => {
+const Cryptos = () => {
 
-  const coinPending = coinProps.isPending;
+  const coinApi = useSelector((state) => state.coinApi);
+
+  const coinPending = coinApi.isPending;
 
   const [q, setQ] = useState('');
   const [searchParam] = useState(['name'])
@@ -15,7 +18,7 @@ const Cryptos = ({ coinProps }) => {
   let coinData;
 
   if(!coinPending) {
-    coinData = coinProps.data.data
+    coinData = coinApi.data.data
     coins = coinData.coins
   }
 
