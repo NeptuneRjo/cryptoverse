@@ -1,8 +1,11 @@
 .details-main {
-    display: flex;  
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
 
-    border: solid 1px white;
+}
+
+.details-header-split, .details-statistics, .details-supplyinfo, .details-description, .details-links {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
 }
 
 .details-header {
@@ -19,14 +22,204 @@
     width: fit-content;
 }
 
-.details-chart {
-    border: solid 1px white;
+.details-header-split {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: .5rem 1rem;
+
+    border-bottom: solid 1px var(--contrast-color);
+    background: var(--dark-gray);
+    border-radius: 8px 8px 0 0;
+}
+
+.details-header-left, .details-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 2rem;
+    gap: .5rem;
+
+    font-size: 1.25em;
+    color: var(--off-white);
+    font-weight: bold;
+    background: transparent;
+}
+
+.details-header-right h4, .details-header-left p {
+    font-size: .8em;
+    background: transparent;
+}
+
+.details-statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem 1rem;
+    background: var(--dark-gray);
+}
+
+.details-statistics > * {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+
+    background: transparent;
+    padding-bottom: 1rem;
+
+    color: var(--off-white);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.details-statistics > * > p {
+    color: var(--contrast-color);
+}
+
+.details-statistics h3 {
+    justify-content: center;
+    font-size: 1.25em;
+    margin: 1rem;
+    font-weight: bold; 
+}
+
+.details-supplyinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem 1rem;
+    background: var(--dark-gray);
+}
+
+.details-supplyinfo > * {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+
+    background: transparent;
+    padding-bottom: 1rem;
+
+    color: var(--off-white);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.details-supplyinfo h3 {
+    justify-content: center;
+    font-size: 1.25em;
+    margin: 1rem;
+    font-weight: bold; 
+}
+
+.details-supplyinfo > * > p {
+    color: var(--contrast-color);
+}
+
+.details-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem 1rem;
+    background: var(--dark-gray);
+}
+
+.details-description > * {
+    width: 95%;
+
+    background: transparent;
+    padding-bottom: 1rem;
+
+    color: var(--off-white);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.details-description-header {
+    text-align: center;
+    color: var(--contrast-color);
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.15em;
+}
+
+.details-descriptiontext h3 {
+    color: var(--contrast-color);
+    margin: 1rem;
+    background: transparent;
+    text-align: center;
+}
+
+.details-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem 1rem;
+    background: var(--dark-gray);
+
+    border-radius: 0px 0px 8px 8px;
+    border-top: solid 1px var(--contrast-color);
+}
+
+.details-links > * {
+    width: 95%;
+
+    background: transparent;
+    padding-bottom: 1rem;
+
+    color: var(--off-white);
+    font-size: 1em;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-links > * > p {
+    text-transform: capitalize;
+}
+
+.details-links h3 {
+    text-align: center;
+    color: var(--contrast-color);
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.15em;
     display: flex;
     justify-content: center;
 }
 
-#myChart {
-    height: 100%;
+a {
+    text-decoration: none;
+    color: var(--contrast-color);
+    background: transparent;
+    cursor: pointer;
+    padding: .25rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.details-totop {
+    text-align: center;
     width: 100%;
-    border: solid 1px white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--contrast-color);
+    font-weight: bold;
+}
+
+.details-totop span:hover {
+    cursor: pointer;
+    border-bottom: solid 1px var(--contrast-color);
+}
+
+span {
+    background: transparent;
 }
