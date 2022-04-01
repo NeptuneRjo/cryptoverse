@@ -199,7 +199,7 @@ a {
     padding: .25rem;
 }
 
-a:hover {
+.details-links a:hover {
     text-decoration: underline;
 }
 
