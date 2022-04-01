@@ -2,8 +2,9 @@ import React from 'react'
 import '../style.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import store from '../../../store';
 
-const NewsItem = ({ news }) => {
+const NewsItem = ({ news, id }) => {
 
     const image = news.imageUrl;
 
@@ -22,11 +23,15 @@ const NewsItem = ({ news }) => {
     const pageUrl = news.title.toLowerCase().replace(/ /g, '-')
     .replace(/[^\w-]+/g, '');
 
-    // console.log(news);
+    const setNewsIndex = () => {
+        store.dispatch({
+            type: 'SET_NEWS_INDEX', payload: id
+        })
+    }
 
     return (
         <Link to={`/news/${pageUrl}`}>
-            <div className="newsitem-main">
+            <div className="newsitem-main" onClick={() => setNewsIndex()}>
                 <div className="newsitem-hero">
                    <img src={checkImageUrl(image)} alt="article image" />
                 </div>
