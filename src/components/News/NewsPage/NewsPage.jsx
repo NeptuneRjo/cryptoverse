@@ -3,7 +3,6 @@ import './style.css';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../animations/Spinner/Spinner';
 import { Link } from 'react-router-dom';
-import store from '../../../store';
 
 const NewsPage = () => {
   const parse = require('html-react-parser');
@@ -11,9 +10,14 @@ const NewsPage = () => {
   const newsApi = useSelector((state) => state.newsApi)
   const newsIndex = useSelector((state) => state.newsIndex)
 
+  const sessionId = sessionStorage.getItem('sessionNewsId')
+
   let article;
 
-  if (!newsApi.isPending && newsIndex.index !== null) {
+  if (!newsApi.isPending && sessionId !== undefined) {
+    article = newsApi.data.news[sessionStorage.getItem('sessionNewsId')]
+  }
+  else if (!newsApi.isPending && newsIndex.index !== null) {
     article = newsApi.data.news[newsIndex.index];
   }
 
@@ -28,7 +32,7 @@ const NewsPage = () => {
     scrollToTop();
   }, [])
 
-  if (newsIndex.index === null) {
+  if (newsIndex.index === null && sessionId === undefined) {
     return (
       <div className="newspage-invalid">
         <p>This instance is no longer valid.</p>

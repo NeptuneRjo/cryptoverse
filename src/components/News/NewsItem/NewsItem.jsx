@@ -27,6 +27,7 @@ const NewsItem = ({ news, id }) => {
         store.dispatch({
             type: 'SET_NEWS_INDEX', payload: id
         })
+        sessionStorage.setItem('sessionNewsId', id);
     }
 
     return (
