@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../animations/Spinner/Spinner';
+import { Link } from 'react-router-dom';
 
 const NewsPage = () => {
   const parse = require('html-react-parser');
@@ -11,25 +12,30 @@ const NewsPage = () => {
 
   let article;
 
-  if (!newsApi.isPending) {
-    console.log(newsApi.data.news[newsIndex.index])
-
+  if (!newsApi.isPending && newsIndex.index !== null) {
     article = newsApi.data.news[newsIndex.index];
   }
 
-  const checkImageUrl = (url) => {
-    const urlString = url.toLowerCase();
-    const https = 'https://'
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
-    if (!urlString.includes('http')) {
-        return  (
-            https.concat(url)
-        )
-    }
-    return url
+  useEffect(() => {
+    scrollToTop();
+  }, [])
+
+  if (newsIndex.index === null) {
+    return (
+      <div className="newspage-invalid">
+        <p>This instance is no longer valid.</p>
+        <p>Please click <Link to="/news">here</Link> to go back</p>
+      </div>
+    )
   }
-
-  if (newsApi.isPending) {
+  else if (newsApi.isPending) {
     return (
       <div className="newspage-loading">
         <Spinner />
@@ -37,15 +43,21 @@ const NewsPage = () => {
     )
   }
   return (
-    <div className="newspage-main">
+    <div className="newspage-main" >
       <div className="newspage-header">
         <h3>{article.title}</h3>
       </div>
-      <div className="newspage-hero">
-        <img src={checkImageUrl(article.imageUrl)} />
+      <div className="newspage-disclaimer">
+        <h3>Disclaimer:</h3> <p>Some articles are not fully available on this website. If you wish to continue reading, please visit the link below, or click <a href={article.articleUrl}>here</a></p>
+      </div>
+      <div className="newspage-date">
+        {article.datestamp}
+      </div>
+      <div className="newspage-content">
+        {parse(article.rawDescription)}
       </div>
       <div className="newspage-author">
-        <a href={article.articleUrl}>Author</a>
+        <a href={article.articleUrl}>View the Original Article</a>
       </div>
     </div>
   )
