@@ -36,8 +36,18 @@ const Nav = () => {
       <div className='nav-mobile-main'>
         <div className="nav-mobile-toggle">
           {toggleMenu
-            ? <RiCloseLine color='#393e46' size={27} onClick={() => {setToggleMenu(false); enableScroll()}} />
-            : <RiMenu3Line color='#ffd369' size={27} onClick={() => {setToggleMenu(true); disableScroll()}} />
+            ? <RiCloseLine 
+                color='#393e46' 
+                size={27} 
+                onClick={() => {setToggleMenu(false); enableScroll()}} 
+                data-testid='close-menu'
+              />
+            : <RiMenu3Line 
+                color='#ffd369' 
+                size={27} 
+                onClick={() => {setToggleMenu(true); disableScroll()}} 
+                data-testid='3-line-menu'
+              />
           }
         </div>
           <div className={`nav-mobile-menu ${toggleMenu}`}>
