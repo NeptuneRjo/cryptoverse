@@ -50,7 +50,7 @@ const Nav = () => {
                   to='/'
                   onClick={() => updateNavState('home')}
                 >
-                  <div onClick={() => {setToggleMenu(false); enableScroll()}}>Home</div>
+                  <div onClick={() => {setToggleMenu(false); enableScroll()}} data-testid='home-link-mobile'>Home</div>
                 </Link>
               </div>
               <div className="nav-mobile-menu-item">
@@ -62,7 +62,7 @@ const Nav = () => {
                   to='/crypto'
                   onClick={() => updateNavState('cryptos')}
                 >
-                  <div onClick={() => {setToggleMenu(false); enableScroll()}}>Cryptos</div>
+                  <div onClick={() => {setToggleMenu(false); enableScroll()}} data-testid='crypto-link-mobile'>Cryptos</div>
                 </Link>
               </div>
               <div className="nav-mobile-menu-item">
@@ -74,7 +74,7 @@ const Nav = () => {
                   to='/news'
                   onClick={() => updateNavState('news')}
                 >
-                  <div onClick={() => {setToggleMenu(false); enableScroll()}}>News</div>
+                  <div onClick={() => {setToggleMenu(false); enableScroll()}} data-testid='news-link-mobile'>News</div>
                 </Link>
               </div>
           </div>  
@@ -87,7 +87,9 @@ const Nav = () => {
                     to='/'
                     onClick={() => updateNavState('home')}
                   >
-                    <div>Home</div>
+                    <div data-testid='home-link-desktop'>
+                      Home
+                    </div>
                   </Link>
             </div>
             <div className="nav-desktop-menu-item">
@@ -96,7 +98,9 @@ const Nav = () => {
                     to='/crypto'
                     onClick={() => updateNavState('cryptos')}
                   >
-                    <div>Cryptocurrencies</div>
+                    <div data-testid='crypto-link-desktop'>
+                        Cryptocurrencies
+                    </div>
                   </Link>
             </div>
             <div className="nav-desktop-menu-item">
@@ -105,7 +109,9 @@ const Nav = () => {
                     to='/news'
                     onClick={() => updateNavState('news')}
                   >
-                    <div>News</div>
+                    <div data-testid='news-link-desktop'>
+                      News
+                    </div>
                   </Link>
             </div>
           </div>
