@@ -1,0 +1,84 @@
+.newspage-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.newspage-header {
+    margin: 1rem 0;
+    color: var(--off-white);
+    
+    display: flex;
+    justify-content: center;
+}
+
+.newspage-header h3 {
+    padding-bottom: .25rem;
+    border-bottom: solid 3px var(--contrast-color);
+    width: 100%;
+    margin: 0 1rem;
+}
+
+.newspage-disclaimer {
+    background: var(--dark-gray);
+    margin: 1rem;
+    color: var(--off-white);
+    padding: .5rem;
+}
+
+.newspage-disclaimer h3 {
+    background: transparent;
+}
+
+.newspage-date {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    color: var(--contrast-color);
+}
+
+.newspage-hero img {
+    width: 90%;
+    height: auto;
+}
+
+.newspage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    gap: .5rem;
+    background: var(--dark-gray);
+    color: var(--off-white);
+    padding: 1rem 1rem;
+    letter-spacing: .25px;
+}
+
+.newspage-content > *, .newspage-content > * > *, .newspage-content > * > * > *  {
+    background: transparent;
+}
+
+.newspage-content em {
+    background: transparent;
+}
+
+.newspage-content img {
+    width: 100%;
+    height: auto;
+}
+
+.newspage-author {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.newspage-invalid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+
+    color: var(--off-white);
+}
