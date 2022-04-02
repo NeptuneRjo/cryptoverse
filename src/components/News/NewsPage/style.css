@@ -82,3 +82,13 @@
 
     color: var(--off-white);
 }
+
+@media screen and (min-width: 768px) {
+    .newspage-invalid {
+        font-size: 1.10em;
+    }
+
+    .newspage-main {
+        font-size: 1.10em;
+    }
+}

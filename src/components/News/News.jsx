@@ -3,6 +3,7 @@ import store from '../../store'
 import NewsItem from './NewsItem/NewsItem'
 import Spinner from '../../animations/Spinner/Spinner';
 import { useSelector } from 'react-redux';
+import './style.css'
 
 const News = () => {
 

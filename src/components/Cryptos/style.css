@@ -27,11 +27,12 @@
 #search-form {
     border: solid 1px var(--off-white);
 
-    padding: .45rem .5rem;;
+    padding: .45rem .5rem;
     outline: none;
     margin-bottom: .35rem;
     color: var(--contrast-color);
     font-weight: bold;
+    width: 200px;
 }
 
 #search-form::placeholder {
@@ -62,46 +63,18 @@
     border-bottom: solid 1px var(--contrast-color);
 }
 
-.crypto-main {
-    border-bottom: solid 5px var(--contrast-color);
-    border-radius: 0px 0px 8px 8px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
-    background: var(--dark-gray);
+@media screen and (min-width: 768px) {
+    .cryptos-main {
+        font-size: 1.10em;
+    }
 
-    display: flex;
-    justify-content: space-between;
-}
+    #search-form {
+        width: 210px;
+        font-size: .85em;
+    }
 
-.crypto-info > * {
-    background: var(--dark-gray);
-    color: var(--off-white);
-}
-
-.crypto-info {
-    margin: 1rem 0;
-    padding-left: 1rem;
-    background: transparent;
-}
-
-.crypto-info-number {
-    color: var(--off-white-hover);
-    font-weight: bold;
-}
-
-.crypto-info-name {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.crypto-icon {
-    background: transparent;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-img {
-    background: transparent;
-    height: 35px;
-    width: 35px;
+    .cryptos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .75rem;
+    }
 }
