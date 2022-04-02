@@ -21,13 +21,16 @@ const Home = () => {
 
   let mainStats;
   let coins;
+
   let news;
+  let news2;
   
   if (!coinPending && !newsPending) {
     mainStats = coinData.data.stats;
     coins = coinData.data.coins.slice(0, 10);
 
     news = newsData.news[0];
+    news2 = newsData.news[1];
   }
 
   useEffect(() => {
@@ -80,7 +83,12 @@ const Home = () => {
           <div className="home-news">
             <h3>Latest News</h3>
             <div className="home-news-grid">
-              <NewsItem news={news} />
+              <div className="home-news-grid-item" id='home-news-item-1'>
+                <NewsItem news={news} />
+              </div>
+              <div className="home-news-grid-item" id='home-news-item-2'>
+                <NewsItem news={news2} />
+              </div>
             </div>
           </div>
         </div>

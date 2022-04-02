@@ -80,7 +80,35 @@ const Nav = () => {
           </div>  
       </div>
       <div className="nav-desktop-main">
-
+          <div className="nav-desktop-menu">
+            <div className="nav-desktop-menu-item">
+                  <Link
+                    className='nav-desktop-menu-link'
+                    to='/'
+                    onClick={() => updateNavState('home')}
+                  >
+                    <div>Home</div>
+                  </Link>
+            </div>
+            <div className="nav-desktop-menu-item">
+                 <Link
+                    className='nav-desktop-menu-link'
+                    to='/crypto'
+                    onClick={() => updateNavState('cryptos')}
+                  >
+                    <div>Cryptocurrencies</div>
+                  </Link>
+            </div>
+            <div className="nav-desktop-menu-item">
+                  <Link
+                    className='nav-desktop-menu-link'
+                    to='/news'
+                    onClick={() => updateNavState('news')}
+                  >
+                    <div>News</div>
+                  </Link>
+            </div>
+          </div>
       </div>
     </>
   )

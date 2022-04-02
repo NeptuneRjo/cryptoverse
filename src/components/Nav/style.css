@@ -62,3 +62,40 @@ svg {
     background: transparent;
 }
 
+.nav-desktop-main {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .nav-mobile-main {
+        display: none;
+    }
+
+    .nav-desktop-main {
+        display: flex;
+        background: var(--contrast-color);
+        padding-top: 4rem;
+
+    }
+
+    .nav-desktop-menu {
+        background: transparent;
+    }
+
+    .nav-desktop-menu-item {
+        margin: 2rem;
+        margin-left: 1rem;
+        background: transparent;
+    }
+
+    .nav-desktop-menu-link div {
+        color: var(--dark-gray);
+        background: transparent;
+        font-weight: bold;
+        font-size: 1.25em;
+    }
+
+    .nav-desktop-menu-link div:hover {
+        text-decoration: underline;
+    }
+}
