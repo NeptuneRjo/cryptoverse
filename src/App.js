@@ -1,6 +1,6 @@
 import './App.css';
 import { Cryptos, Home, Nav, News } from './components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import useFetch from './api/useFetch';
 import CoinDetails from './components/Cryptos/CoinDetails/CoinDetails';
 import NewsPage from './components/News/NewsPage/NewsPage';
@@ -19,7 +19,7 @@ function App() {
   useFetch(api.newsUrl, api.newsHost, 'NEWS')
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-main">
         <Nav />
         <div className="app-content">
@@ -57,7 +57,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
