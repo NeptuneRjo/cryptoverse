@@ -69,6 +69,11 @@ a {
     .news-main {
         font-size: 1.10em;
     }
+
+    #news-search-form {
+        width: 210px;
+        font-size: .85em;
+    }
 }
 
 @media screen and (min-width: 1320px) {
