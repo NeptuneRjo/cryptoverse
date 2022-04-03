@@ -17,6 +17,8 @@ const Crypto = ({ coinData }) => {
           <div className="crypto-info-price">
             ${Number(coinData.price).toFixed(2)}
           </div>
+          <p className='crypto-tap'>tap to see more</p>
+          <p className='crypto-click'>click to see more</p>
         </div>
         <div className="crypto-icon">
           <img 

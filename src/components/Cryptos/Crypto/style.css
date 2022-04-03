@@ -36,8 +36,28 @@
     padding: 0 1rem;
 }
 
+.crypto-tap, .crypto-click {
+    color: var(--contrast-color);
+    opacity: .75;
+    font-size: .75em;
+}
+
+.crypto-click {
+    display: none;
+}
+
 img {
     background: transparent;
     height: 35px;
     width: 35px;
+}
+
+@media screen and (min-width: 1024px) {
+    .crypto-click {
+        display: block;
+    }
+
+    .crypto-tap {
+        display: none;
+    }
 }
