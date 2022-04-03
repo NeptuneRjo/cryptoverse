@@ -23,7 +23,8 @@ and Crypto-related news.
 
 ## Screenshots
 
-![Desktop Home Page]()
+![Desktop Home Page](screenshots/desktop-home.png)
+![Coin Details](screenshots/desktop-coin.png)
 
 
 ## Technologies
