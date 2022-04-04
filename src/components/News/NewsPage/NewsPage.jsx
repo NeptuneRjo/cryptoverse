@@ -13,6 +13,7 @@ const NewsPage = () => {
   const sessionId = sessionStorage.getItem('sessionNewsId')
 
   let article;
+  console.log(article)
 
   if (!newsApi.isPending && sessionId !== undefined) {
     article = newsApi.data.news[sessionStorage.getItem('sessionNewsId')]

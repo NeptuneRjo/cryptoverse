@@ -84,10 +84,10 @@ const Home = () => {
             <h3>Latest News</h3>
             <div className="home-news-grid">
               <div className="home-news-grid-item" id='home-news-item-1'>
-                <NewsItem news={news} />
+                <NewsItem news={news} id={0} />
               </div>
               <div className="home-news-grid-item" id='home-news-item-2'>
-                <NewsItem news={news2} />
+                <NewsItem news={news2} id={1} />
               </div>
             </div>
           </div>
