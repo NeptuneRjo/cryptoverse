@@ -38,6 +38,10 @@ const CoinDetails = () => {
         });
     };
 
+    useEffect(() => {
+        scrollToTop()
+    }, [])
+
     if (!coinApi.error === null) {
         return (
             <div className="details-error">
