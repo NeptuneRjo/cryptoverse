@@ -1,65 +1,151 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent} from '@testing-library/react';
+import '@testing-library/jest-dom'
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
-
-import { createTestStore } from './createTestStore';
+import { createStore } from 'redux';
+import rootReducer from '../reducer';
 
 import App from '../App';
-import { Nav, Cryptos, Home, News } from '../components';
-import { store as actualStore } from '../store';
-import { useSelector } from 'react-redux';
 
-let store;
 
-describe('App', () => {
+function renderWithRedux(
+    ui,
+    {initialState, store = createStore(rootReducer, initialState)} = {},
+) {
+    return {
+        ...render(<Provider store={store}>{ui}</Provider>),
+        store,
+    }
+}
 
-    beforeEach(() => {
-        store = createTestStore();
-    });
-    
-    const component = (component) => {
-        render(
-        <Provider store={store} >
-            {component}
-        </Provider>,
-        {wrapper: MemoryRouter}
-    )}
+const store = createStore(() => ({
+    coinApi: {
+        data: {
+            data: {
+                stats: {
+                    "total": 3,
+                    "totalCoins": 10000,
+                    "totalMarkets": 35000,
+                    "totalExchanges": 300,
+                    "totalMarketCap": "239393904304",
+                    "total24hVolume": "503104376.06373006"
+                },
+                coins: [
+                    {
+                        "uuid": "Qwsogvtv82FCd",
+                        "symbol": "BTC",
+                        "name": "Bitcoin",
+                        "color": "#f7931A",
+                        "iconUrl": "https://cdn.coinranking.com/Sy33Krudb/btc.svg",
+                        "marketCap": "159393904304",
+                        "price": "9370.9993109108",
+                        "btcPrice": "1",
+                        "listedAt": "1483228800"
+                    }
+                ]
+            }
+        }, 
+        isPending: false,
+        error: null
+    },
+    newsApi: {
+        data: {
+            news: [
+                {
+                    imageUrl: "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
+                    title: "Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?",
+                    categories: ['Other'],
+                    date: "2022-04-03T23:00:00.000Z",
+                    datestamp: "04-03-2022",
+                    rawDescription: 'description',
+                },
+                {
+                    imageUrl: "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
+                    title: "Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?",
+                    categories: ['Other'],
+                    date: "2022-04-03T23:00:00.000Z",
+                    datestamp: "04-03-2022",
+                    rawDescription: 'description',
+                }
+            ]
+        },
+        isPending: false,
+        error: null
+    },
+    navbar: {
+        currentNav: 'home'
+    }
+}))
 
-    describe('Nav', () => {
+it('should render with redux with defaults', () => {
+    const { getByTestId } = renderWithRedux(<App />)
+    expect(getByTestId('home-loading-text')).toHaveTextContent('Loading');
+})
 
-        it('should render the desktop nav', async () => {
-            component(<Nav />)
-    
-            const home = screen.getByTestId('home-link-desktop')
-            const cryptos = screen.getByTestId('crypto-link-desktop')
-            const news = screen.getByTestId('news-link-desktop');
-    
-            expect(home).toBeVisible;
-            expect(cryptos).toBeVisible;
-            expect(news).toBeVisible;
-        })
+it('should render with redux with a custom store', () => {
+    const { getByText } = renderWithRedux(<App />,  { store })
+    expect(getByText('Total Exchanges')).toBeInTheDocument()
+})
 
-        it('should render the mobile nav', async () => {
-            component(<Nav />)
-            
-            const home = screen.getByTestId('home-link-mobile')
-            const cryptos = screen.getByTestId('crypto-link-mobile')
-            const news = screen.getByTestId('news-link-mobile');
+describe('Nav', () => {
 
-            expect(home).toBeVisible;
-            expect(cryptos).toBeVisible;
-            expect(news).toBeVisible;
-        })
+    it('should render the mobile nav toggle', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
 
-        it('should switch the nav toggle when clicked', () => {
-            component(<Nav />)
+        expect(
+            getByTestId('toggle-menu').querySelector('svg')
+        ).toBeInTheDocument();
 
-            const openMenu = screen.getByTestId('3-line-menu')
-            expect(openMenu).toBeVisible
+        fireEvent.click(
+            getByTestId('toggle-menu').querySelector('svg')
+        )
 
-            fireEvent.click(openMenu)
-            const closeMenu = screen.getByTestId('close-menu')
-            expect(closeMenu).toBeVisible
-        })
+        expect(
+            getByTestId('toggle-menu').querySelector('svg')
+        ).toBeInTheDocument();
+    })
+
+    it('should render the nav links', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        // Mobile Nav Links
+
+        expect(getByTestId('home-link-mobile')).toBeInTheDocument();
+        expect(getByTestId('crypto-link-mobile')).toBeInTheDocument();
+        expect(getByTestId('news-link-mobile')).toBeInTheDocument();
+
+        // Desktop Nav Links
+
+        expect(getByTestId('home-link-desktop')).toBeInTheDocument();
+        expect(getByTestId('crypto-link-desktop')).toBeInTheDocument();
+        expect(getByTestId('news-link-desktop')).toBeInTheDocument();
+    })
+
+    it('should render the correct pages on mobile', () => {
+        const { getByTestId, } = renderWithRedux(<App />, { store })
+
+        expect(getByTestId('home-header')).toBeInTheDocument();
+
+        fireEvent.click(getByTestId('crypto-link-mobile')) 
+        expect(getByTestId('cryptos-header')).toBeInTheDocument(); 
+        
+        fireEvent.click(getByTestId('news-link-mobile'))
+        expect(getByTestId('news-header')).toBeInTheDocument();
+
+        fireEvent.click(getByTestId('home-link-mobile'))
+    })
+
+    it('should render the correct pages on desktop', () => {
+        const { getByTestId, } = renderWithRedux(<App />, { store })
+
+        expect(getByTestId('home-header')).toBeInTheDocument();
+
+        fireEvent.click(getByTestId('crypto-link-desktop')) 
+        expect(getByTestId('cryptos-header')).toBeInTheDocument(); 
+        
+        fireEvent.click(getByTestId('news-link-desktop'))
+        expect(getByTestId('news-header')).toBeInTheDocument();
+
+        // Renders homepage before next test
+        fireEvent.click(getByTestId('home-link-desktop'))
     })
 })
