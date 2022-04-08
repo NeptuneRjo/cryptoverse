@@ -11,7 +11,7 @@ export default function Spinner(props) {
                     <circle id="upper" cx="138" cy="138" r="123" stroke="#72BBFF" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="373 100" style={{animationDuration:props.speed+"s"}}/>
                 </g>
             </svg>
-            <p>{props.customText}</p>
+            <p data-testid='home-loading-text'>{props.customText}</p>
             </div>
 
     )
