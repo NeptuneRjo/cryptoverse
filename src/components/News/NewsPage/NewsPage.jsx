@@ -13,9 +13,8 @@ const NewsPage = () => {
   const sessionId = sessionStorage.getItem('sessionNewsId')
 
   let article;
-  console.log(article)
 
-  if (!newsApi.isPending && sessionId !== undefined) {
+  if (!newsApi.isPending && sessionId !== null) {
     article = newsApi.data.news[sessionStorage.getItem('sessionNewsId')]
   }
   else if (!newsApi.isPending && newsIndex.index !== null) {
@@ -51,15 +50,15 @@ const NewsPage = () => {
   return (
     <div className="newspage-main" >
       <div className="newspage-header">
-        <h3>{article.title}</h3>
+        <h3 data-testid='article-title'>{article.title}</h3>
       </div>
-      <div className="newspage-disclaimer">
+      <div className="newspage-disclaimer" data-testid='article-disclaimer'>
         <h3>Disclaimer:</h3> <p>Some articles are not fully available on this website. If you wish to continue reading, please visit the link below, or click <a href={article.articleUrl}>here</a></p>
       </div>
-      <div className="newspage-date">
+      <div className="newspage-date" data-testid='article-date'>
         {article.datestamp}
       </div>
-      <div className="newspage-content">
+      <div className="newspage-content" data-testid='article-description'>
         {parse(article.rawDescription)}
       </div>
       <div className="newspage-author">

@@ -58,7 +58,7 @@ const Cryptos = () => {
   return (
     <div className="cryptos-main">
       <div className="cryptos-header">
-        <h3>Top 50 Cryptocurrencies</h3>
+        <h3 data-testid='cryptos-header'>Top 50 Cryptocurrencies</h3>
       </div>
       <div className="cryptos-search">
         <label htmlFor="search-form">

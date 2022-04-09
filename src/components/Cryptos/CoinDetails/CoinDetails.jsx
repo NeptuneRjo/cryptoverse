@@ -60,16 +60,16 @@ const CoinDetails = () => {
     return (
         <>
             <div className="details-main">
-                <div className="details-header">
-                    <h3>{coin.name} Info</h3>
+                <div className="details-header" data-testid='coin-header'>
+                    <h3 data-testid='coin-name'>{coin.name} Info</h3>
                 </div>
                 <div className="details-header-split">
                     <div className="details-header-left">
-                        <img src={coin.iconUrl} />
-                        <p>Rank {coin.rank}</p>
+                        <img src={coin.iconUrl} data-testid='coin-icon' />
+                        <p data-testid='coin-rank'>Rank {coin.rank}</p>
                     </div>
                     <div className="details-header-right">
-                        <p>{coin.change}%</p>
+                        <p data-testid='coin-change'>{coin.change}%</p>
                         <h4>Price Change</h4>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const CoinDetails = () => {
                         <p>USD to {coin.symbol}</p>
                         {toCoinPrice(coin.btcPrice)} {coin.symbol}
                     </div>
-                    <div className="details-24hvolume">
+                    <div className="details-24hvolume" >
                         <p>24 Hour Volume</p>
                         ${millify(coin['24hVolume'])}
                     </div>
@@ -112,7 +112,7 @@ const CoinDetails = () => {
                     </div>
                 </div>
                 <div className="details-description">
-                    <h3 className='details-description-header'>
+                    <h3 className='details-description-header' data-testid='coin-desc-header'>
                         What is {coin.name}?
                     </h3>
                     <div className="details-descriptiontext">

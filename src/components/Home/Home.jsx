@@ -51,18 +51,18 @@ const Home = () => {
     <div className="home-main">
         <div className="home-main-loaded">
           <div className="home-header">
-            <h3>Home</h3>
+            <h3 data-testid='home-header'>Home</h3>
           </div>
           <div className="home-stats">
-            <div className="home-stats-item" id="total-cryptos">
+            <div className="home-stats-item" id="total-cryptos" data-testid='total-cryptos'>
               {mainStats.total}
               <p>Total Cryptocurrencies</p>
             </div>
-            <div className="home-stats-item" id="24hr-volume">
+            <div className="home-stats-item" id="24hr-volume" data-testid='24h-volume'>
               ${millify(mainStats.total24hVolume)}
               <p>Total 24hr Volume</p>
             </div>
-            <div className="home-stats-item" id="total-exchanges">
+            <div className="home-stats-item" id="total-exchanges" data-testid='total-exchanges'>
               {mainStats.totalExchanges}
               <p>Total Exchanges</p>
             </div>

@@ -34,7 +34,7 @@ const Nav = () => {
   return (
     <>
       <div className='nav-mobile-main'>
-        <div className="nav-mobile-toggle">
+        <div className="nav-mobile-toggle" data-testid='toggle-menu'>
           {toggleMenu
             ? <RiCloseLine 
                 color='#393e46' 

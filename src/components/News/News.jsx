@@ -57,7 +57,7 @@ const News = () => {
   return (
     <div className="news-main">
       <div className="news-header">
-        <h3>Today's Crypto News</h3>
+        <h3 data-testid='news-header'>Today's Crypto News</h3>
       </div>
       <div className="news-search">
         <label htmlFor="search-form">

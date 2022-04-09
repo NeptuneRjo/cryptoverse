@@ -38,7 +38,6 @@
 
 .crypto-tap, .crypto-click {
     color: var(--contrast-color);
-    opacity: .75;
     font-size: .75em;
 }
 
