@@ -22,12 +22,12 @@ const store = createStore(() => ({
         data: {
             data: {
                 stats: {
-                    "total": 3,
-                    "totalCoins": 10000,
-                    "totalMarkets": 35000,
-                    "totalExchanges": 300,
+                    "total": '3',
+                    "totalCoins": '10000',
+                    "totalMarkets": '35000',
+                    "totalExchanges": '300',
                     "totalMarketCap": "239393904304",
-                    "total24hVolume": "503104376.06373006"
+                    "total24hVolume": "50"
                 },
                 coins: [
                     {
@@ -37,9 +37,10 @@ const store = createStore(() => ({
                         "color": "#f7931A",
                         "iconUrl": "https://cdn.coinranking.com/Sy33Krudb/btc.svg",
                         "marketCap": "159393904304",
-                        "price": "9370.9993109108",
+                        "price": "9370",
                         "btcPrice": "1",
-                        "listedAt": "1483228800"
+                        "listedAt": "1483228800",
+                        'rank': '1'
                     }
                 ]
             }
@@ -147,5 +148,49 @@ describe('Nav', () => {
 
         // Renders homepage before next test
         fireEvent.click(getByTestId('home-link-desktop'))
+    })
+})
+
+describe('Home', () => {
+
+    it('should display statistics', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        expect(getByTestId('total-cryptos')).toHaveTextContent('3')
+        expect(getByTestId('24h-volume')).toHaveTextContent('$50')
+        expect(getByTestId('total-exchanges')).toHaveTextContent('300')
+    })
+
+    it('should display a cryptocurrency', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+        const url = "https://cdn.coinranking.com/Sy33Krudb/btc.svg"
+
+        expect(getByTestId('crypto-name')).toBeInTheDocument();
+
+        expect(getByTestId('crypto-num')).toHaveTextContent('1');
+        expect(getByTestId('crypto-name')).toHaveTextContent('Bitcoin');
+        expect(getByTestId('crypto-price')).toHaveTextContent('$9370');
+
+        // Icon Tests
+        expect(getByTestId('crypto-icon')).toHaveAttribute('src', url)
+        expect(getByTestId('crypto-icon')).toHaveAttribute('alt', 'Cryptocurrency icon');
+    })
+
+    it('should display a news article', () => {
+        const { getAllByTestId } = renderWithRedux(<App />, { store })
+
+        getAllByTestId('news-title').forEach(element => {
+            expect(element).toBeInTheDocument();
+            expect(element).toHaveTextContent('Thai Crypto Ban:')
+        });
+
+        getAllByTestId('news-date').forEach(element => {
+            expect(element).toBeInTheDocument();
+            expect(element).toHaveTextContent('04-03-2022');
+        })
+
+        getAllByTestId('news-img').forEach(element => {
+            expect(element).toBeInTheDocument();
+        })
     })
 })
