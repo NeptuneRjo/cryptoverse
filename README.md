@@ -29,7 +29,7 @@ and Crypto-related news.
 
 ## Technologies
 
-Built with `React`, `React-Redux`, `CSS3`, `Millify`, and `APIs`
+Built with `React`, `React-Redux`, `CSS3`, `Millify`, and `APIs`. Tested with `Jest` and `React-Testing-Library`.
 
 
 ## Setup
