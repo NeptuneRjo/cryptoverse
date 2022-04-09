@@ -9,10 +9,10 @@ function App() {
 
   const api = {
     coinUrl: 'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0',
-    coinHost: 'coinranking1.p.rapidapi.com',
+    coinHost: process.env.REACT_APP_COIN_HOST,
 
     newsUrl: 'https://crypto-open-news.p.rapidapi.com/news',
-    newsHost: 'crypto-open-news.p.rapidapi.com'
+    newsHost: process.env.REACT_APP_NEWS_HOST
   }
 
   useFetch(api.coinUrl, api.coinHost, 'COIN');
