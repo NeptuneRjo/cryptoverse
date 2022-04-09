@@ -1,8 +1,9 @@
 import { render, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import rootReducer from '../reducer';
+import { createStore } from 'redux';
+import store from './testStore';
 
 import App from '../App';
 
@@ -17,65 +18,7 @@ function renderWithRedux(
     }
 }
 
-const store = createStore(() => ({
-    coinApi: {
-        data: {
-            data: {
-                stats: {
-                    "total": '3',
-                    "totalCoins": '10000',
-                    "totalMarkets": '35000',
-                    "totalExchanges": '300',
-                    "totalMarketCap": "239393904304",
-                    "total24hVolume": "50"
-                },
-                coins: [
-                    {
-                        "uuid": "Qwsogvtv82FCd",
-                        "symbol": "BTC",
-                        "name": "Bitcoin",
-                        "color": "#f7931A",
-                        "iconUrl": "https://cdn.coinranking.com/Sy33Krudb/btc.svg",
-                        "marketCap": "159393904304",
-                        "price": "9370",
-                        "btcPrice": "1",
-                        "listedAt": "1483228800",
-                        'rank': '1'
-                    }
-                ]
-            }
-        }, 
-        isPending: false,
-        error: null
-    },
-    newsApi: {
-        data: {
-            news: [
-                {
-                    imageUrl: "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
-                    title: "Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?",
-                    categories: ['Other'],
-                    date: "2022-04-03T23:00:00.000Z",
-                    datestamp: "04-03-2022",
-                    rawDescription: 'description',
-                },
-                {
-                    imageUrl: "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
-                    title: "Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?",
-                    categories: ['Other'],
-                    date: "2022-04-03T23:00:00.000Z",
-                    datestamp: "04-03-2022",
-                    rawDescription: 'description',
-                }
-            ]
-        },
-        isPending: false,
-        error: null
-    },
-    navbar: {
-        currentNav: 'home'
-    }
-}))
+
 
 it('should render with redux with defaults', () => {
     const { getByTestId } = renderWithRedux(<App />)
@@ -192,5 +135,70 @@ describe('Home', () => {
         getAllByTestId('news-img').forEach(element => {
             expect(element).toBeInTheDocument();
         })
+    })
+})
+
+describe('Cryptocurrencies', () => {
+
+    it('should render the cryptocurrencies page', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+        const url = "https://cdn.coinranking.com/Sy33Krudb/btc.svg"
+
+        fireEvent.click(getByTestId('crypto-link-desktop'))
+        expect(getByTestId('cryptos-header')).toBeVisible();
+
+        expect(getByTestId('crypto-num')).toHaveTextContent('1');
+        expect(getByTestId('crypto-name')).toHaveTextContent('Bitcoin');
+        expect(getByTestId('crypto-price')).toHaveTextContent('$9370');
+
+        // Icon Tests
+        expect(getByTestId('crypto-icon')).toHaveAttribute('src', url)
+        expect(getByTestId('crypto-icon')).toHaveAttribute('alt', 'Cryptocurrency icon');
+    })
+
+    it('should render the coin page', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        fireEvent.click(getByTestId('crypto-item'))
+        expect(getByTestId('coin-header')).toBeVisible();
+    })
+
+    it('should render the coin details', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        expect(getByTestId('coin-name')).toHaveTextContent('Bitcoin Info')
+        expect(getByTestId('coin-rank')).toHaveTextContent('1')
+        expect(getByTestId('coin-change')).toHaveTextContent('-3.25%')
+        expect(getByTestId('coin-desc-header')).toHaveTextContent('What is Bitcoin')
+    })
+})
+
+describe('News', () => {
+
+    it('should render news page', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        fireEvent.click(getByTestId('news-link-desktop'))
+        expect(getByTestId('news-header')).toBeInTheDocument();
+    })
+
+    it('should render articles', () => {
+        const { getAllByTestId } = renderWithRedux(<App />, { store })
+
+        getAllByTestId('news-img').forEach(element => {
+            expect(element).toBeInTheDocument();
+        });
+        getAllByTestId('news-title').forEach(element => {
+            expect(element).toHaveTextContent('Thai Crypto Ban:');
+        });
+        getAllByTestId('news-date').forEach(element => {
+            expect(element).toHaveTextContent('04-03-2022');
+        });
+    })
+
+    it('should render the article page', () => {
+        const { getAllByTestId } = renderWithRedux(<App />, { store })
+
+        fireEvent.click(getAllByTestId('link-to-article')[0])
     })
 })
