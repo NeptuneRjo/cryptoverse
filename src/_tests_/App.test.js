@@ -197,8 +197,18 @@ describe('News', () => {
     })
 
     it('should render the article page', () => {
-        const { getAllByTestId } = renderWithRedux(<App />, { store })
+        const { 
+            getByTestId,
+            getAllByTestId,
+        } = renderWithRedux(<App />, { store })
 
         fireEvent.click(getAllByTestId('link-to-article')[0])
+        
+        expect(getByTestId('article-title')).toHaveTextContent('Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?');
+        expect(getByTestId('article-disclaimer')).toBeVisible();
+        expect(getByTestId('article-date')).toHaveTextContent('04-03-2022')
+        expect(getByTestId('article-description')).toHaveTextContent('description')
+
+        fireEvent.click(getByTestId('home-link-desktop'))
     })
 })
