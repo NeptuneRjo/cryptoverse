@@ -48,20 +48,36 @@ describe('Nav', () => {
         ).toBeInTheDocument();
     })
 
-    it('should render the nav links', () => {
+    it('should render the mobile nav links', () => {
         const { getByTestId } = renderWithRedux(<App />, { store })
-
-        // Mobile Nav Links
 
         expect(getByTestId('home-link-mobile')).toBeInTheDocument();
         expect(getByTestId('crypto-link-mobile')).toBeInTheDocument();
         expect(getByTestId('news-link-mobile')).toBeInTheDocument();
+    })
 
-        // Desktop Nav Links
+    it('should render the mobile nav links correctly', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        expect(getByTestId('home-link-mobile')).toHaveTextContent('Home');
+        expect(getByTestId('crypto-link-mobile')).toHaveTextContent('Cryptos');
+        expect(getByTestId('news-link-mobile')).toHaveTextContent('News');
+    })
+
+    it('should render the desktop nav links', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
 
         expect(getByTestId('home-link-desktop')).toBeInTheDocument();
         expect(getByTestId('crypto-link-desktop')).toBeInTheDocument();
         expect(getByTestId('news-link-desktop')).toBeInTheDocument();
+    })
+
+    it('should render the desktop nav links correctly', () => {
+        const { getByTestId } = renderWithRedux(<App />, { store })
+
+        expect(getByTestId('home-link-desktop')).toHaveTextContent('Home');
+        expect(getByTestId('crypto-link-desktop')).toHaveTextContent('Cryptocurrencies');
+        expect(getByTestId('news-link-desktop')).toHaveTextContent('News');
     })
 
     it('should render the correct pages on mobile', () => {
