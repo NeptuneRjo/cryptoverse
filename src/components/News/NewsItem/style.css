@@ -25,6 +25,7 @@
 .newsitem-header {
     margin: .5rem .25rem;
     font-weight: bold;
+    height: 50px;
 }
 
 .newsitem-date {
