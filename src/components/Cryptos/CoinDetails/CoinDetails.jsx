@@ -65,7 +65,11 @@ const CoinDetails = () => {
                 </div>
                 <div className="details-header-split">
                     <div className="details-header-left">
-                        <img src={coin.iconUrl} data-testid='coin-icon' />
+                        <img 
+                            src={coin.iconUrl} 
+                            data-testid='coin-icon' 
+                            alt='cryptocurrency icon'
+                        />
                         <p data-testid='coin-rank'>Rank {coin.rank}</p>
                     </div>
                     <div className="details-header-right">

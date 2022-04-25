@@ -1,7 +1,6 @@
 import React from 'react'
 import './style.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import store from '../../../store';
 
 const NewsItem = ({ news, id }) => {
@@ -34,7 +33,7 @@ const NewsItem = ({ news, id }) => {
         <Link to={`/news/${pageUrl}`} data-testid='link-to-article'>
             <div className="newsitem-main" onClick={() => setNewsIndex()}>
                 <div className="newsitem-hero" >
-                   <img src={checkImageUrl(image)} alt="article image"  data-testid='news-img'/>
+                   <img src={checkImageUrl(image)} alt="article hero"  data-testid='news-img'/>
                 </div>
                 <div className="newsitem-info">
                     <div className="newsitem-header" data-testid='news-title'>

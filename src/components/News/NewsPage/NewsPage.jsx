@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../animations/Spinner/Spinner';
