@@ -16,7 +16,7 @@ const News = () => {
 
   let articles;
 
-  if (!newsPending) {
+  if (!newsPending && newsApi.data !== null) {
     articles = newsApi.data.news
   }
 
@@ -71,20 +71,33 @@ const News = () => {
           />
         </label>
       </div>
-      <div className="news-grid">
-        {
-          search(articles).map((news, index) => (
-            <NewsItem
-              news={news}
-              key={index}
-              id={index}
-            />
-          ))
-        }
-      </div>
-      <div className="news-totop">
-        <span onClick={scrollToTop}>Back to top</span>
-      </div>
+      {
+        newsApi.data == null &&
+          <div className="news-unavailable">
+            <h4>Sorry, there is currrently no news available at the moment.</h4>
+            <h4>Please try again later</h4>
+          </div>
+      }
+      {
+        newsApi.data !== null && 
+          <>
+            <div className="news-grid">
+              {
+                search(articles).map((news, index) => (
+                  <NewsItem
+                    news={news}
+                    key={index}
+                    id={index}
+                  />
+                ))
+              }
+            </div>
+            <div className="news-totop">
+              <span onClick={scrollToTop}>Back to top</span>
+            </div>
+          </>
+      }
+
     </div>
   )
 }

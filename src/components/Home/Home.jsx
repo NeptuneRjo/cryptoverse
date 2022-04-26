@@ -29,8 +29,10 @@ const Home = () => {
     mainStats = coinData.data.stats;
     coins = coinData.data.coins.slice(0, 10);
 
-    news = newsData.news[0];
-    news2 = newsData.news[1];
+    if (newsData !== null) {
+      news = newsData.news[0];
+      news2 = newsData.news[1];
+    }
   }
 
   useEffect(() => {
@@ -82,14 +84,26 @@ const Home = () => {
           </div>
           <div className="home-news">
             <h3>Latest News</h3>
-            <div className="home-news-grid">
-              <div className="home-news-grid-item" id='home-news-item-1'>
-                <NewsItem news={news} id={0} />
-              </div>
-              <div className="home-news-grid-item" id='home-news-item-2'>
-                <NewsItem news={news2} id={1} />
-              </div>
-            </div>
+            {
+              newsData == null &&  
+                <div className="home-news-unavailable">
+                  <h4>Sorry, there is currrently no news available at the moment.</h4>
+                  <h4>Please try again later</h4>
+                </div>
+            }
+            {
+              newsData !== null &&
+              <>
+                <div className="home-news-grid">
+                  <div className="home-news-grid-item" id='home-news-item-1'>
+                    <NewsItem news={news} id={0} />
+                  </div>
+                  <div className="home-news-grid-item" id='home-news-item-2'>
+                    <NewsItem news={news2} id={1} />
+                  </div>
+                </div>
+              </>
+            }
           </div>
         </div>
     </div>
