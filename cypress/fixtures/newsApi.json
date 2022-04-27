@@ -1,0 +1,22 @@
+{
+    "news": [
+        {
+            "imageUrl": "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
+            "title": "Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?",
+            "categories": ["Other"],
+            "date": "2022-04-03T23:00:00.000Z",
+            "datestamp": "04-03-2022",
+            "rawDescription": "description"
+        },
+        {
+            "imageUrl": "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
+            "title": "Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?",
+            "categories": ["Other"],
+            "date": "2022-04-03T23:00:00.000Z",
+            "datestamp": "04-03-2022",
+            "rawDescription": "description"
+        }
+    ],
+    "isPending": false,
+    "error": null
+}

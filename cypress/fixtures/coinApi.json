@@ -1,0 +1,29 @@
+{
+
+    "data": {
+        "stats": {
+            "total": "3",
+            "totalCoins": "10000",
+            "totalMarkets": "35000",
+            "totalExchanges": "300",
+            "totalMarketCap": "239393904304",
+            "total24hVolume": "50"
+        },
+        "coins": [
+            {
+                "uuid": "Qwsogvtv82FCd",
+                "symbol": "BTC",
+                "name": "Bitcoin",
+                "color": "#f7931A",
+                "iconUrl": "https://cdn.coinranking.com/Sy33Krudb/btc.svg",
+                "marketCap": "159393904304",
+                "price": "9370",
+                "btcPrice": "1",
+                "listedAt": "1483228800",
+                "rank": "1"
+            }
+        ],
+        "isPending": false,
+        "error": null
+    }
+}
