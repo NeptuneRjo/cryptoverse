@@ -156,7 +156,151 @@ describe('Cryptos', () => {
     describe('Cryptos details page', () => {
 
         beforeEach(() => {
-            cy.get('.cryptos-main').click()
+            cy.get('.crypto-main').click()
+        })
+
+        it('should render the crypto details page', () => {
+            cy.get('.details-main').should('be.visible')
+        })
+
+        it('should render the correct header', () => {
+            cy.get('.details-header')
+                .should('be.visible')
+                .contains('Bitcoin Info')
+        })
+
+        it('should render the correct icon', () => {
+            const src = 'https://cdn.coinranking.com/Sy33Krudb/btc.svg'
+
+            cy.get('.details-header-left img')
+                .should('be.visible')
+                .should('have.attr', 'src')
+                .should('include', src)
+        })
+
+        it('should render the correct rank', () => {
+            cy.get('.details-header-left p ')
+                .should('be.visible')
+                .contains('Rank 1')
+        })
+
+        it('should render the correct price change', () => {
+            cy.get('.details-header-right').should('be.visible')
+
+            cy.get('.details-header-right p')
+                .should('be.visible')
+                .contains('-3.25%')
+            cy.get('.details-header-right h4')
+                .should('be.visible')
+                .contains('Price Change')
+        })
+
+        it('should render the correct statistics header', () => {
+            cy.get('.details-statistics')
+                .should('be.visible')
+                .contains('BTC value statistics')
+        })
+
+        it('should render both conversions correctly', () => {
+            cy.get('.details-tousd')
+                .should('be.visible')
+                .contains('BTC to USD')
+            
+            cy.get('.details-tocoin')
+                .should('be.visible')
+                .contains('USD to BTC')
+        })
+
+        it('should render the correct coin to usd', () => {
+            cy.get('.details-tousd').contains('$9370.00')
+        })
+
+        it('should render the correct usd to coin', () => {
+            cy.get('.details-tocoin').contains('1.00 BTC')
+        })
+
+        it('should render the correct 24h volume', () => {
+            cy.get('.details-24hvolume p')
+                .should('be.visible')
+                .contains('24 Hour Volume')
+
+            cy.get('.details-24hvolume')    
+                .should('be.visible')
+                .contains('$100')
+        })
+
+        it('should render the market cap', () => {
+            cy.get('.details-marketcap p')
+                .should('be.visible')
+                .contains('Market Cap')
+
+            cy.get('.details-marketcap')
+                .should('be.visible')
+                .contains('$1.6K')
+        })
+
+        it('should render the all time high', () => {
+            cy.get('.details-alltimehigh p')  
+                .should('be.visible')
+                .contains('All Time High')
+            
+            cy.get('.details-alltimehigh')
+                .should('be.visible')
+                .contains('$100')
+        })
+
+        it('should render the supply header', () => {
+            cy.get('.details-supplyinfo h3')
+                .should('be.visible')
+                .contains('Supply Information')
+        })
+
+        it('should render the total supply', () => {
+            cy.get('.details-supply')
+                .should('be.visible')
+                .contains('100')
+        })
+
+        it('should render the circulating supply', () => {
+            cy.get('.details-circulating')
+                .should('be.visible')
+                .contains('100')
+        })
+
+        it('should render the info header', () => {
+            cy.get('.details-description-header')
+                .should('be.visible')
+                .contains('What is Bitcoin?')
+        })
+
+        it('should render the coin description', () => {
+            cy.get('.details-descriptiontext')
+                .should('be.visible')
+                .contains('Hello, world')
+        })
+
+        it('should render the links header', () => {
+            cy.get('.details-links h3')
+                .should('be.visible')
+                .contains('Bitcoin Links')
+        })
+
+        it('should render the links', () => {
+            cy.get('.details-links')
+                .should('be.visible')
+                .contains('website')
+
+            cy.get('.details-links a')
+                .should('be.visible')
+                .contains('Bitcoin')
+                .should('have.attr', 'href')
+                .should('include', 'https://www.google.com')
+        })
+
+        it('should render the back to top button', () => {
+            cy.get('.details-totop span')
+                .should('be.visible')
+                .contains('Back to top')
         })
     })
 
