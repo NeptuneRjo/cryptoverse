@@ -14,7 +14,7 @@ describe('Cryptos', () => {
         cy.intercept('GET', urls[1], { fixture: 'coinDetailsApi.json' })
         cy.intercept('GET', urls[2], { fixture: 'newsApi.json' })
 
-        cy.visit('https://neptunerjo.github.io/cryptoverse/')
+        cy.visit('http://localhost:3000')
     })
 
     it('should render the mock data', () => {
