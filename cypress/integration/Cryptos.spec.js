@@ -77,4 +77,87 @@ describe('Cryptos', () => {
         })
     })
 
+    describe('Cryptocurrencies page', () => {
+        beforeEach(() => {
+            cy.get('.nav-mobile-main svg').click()
+            cy.get('.nav-mobile-menu-item div').contains('Cryptos').click()
+        })
+
+        it('should render the *single* coin on the cryptos page', () => {
+            cy.get('.crypto-main').should('be.visible')
+        })
+
+        it('should render the correct coin name', () => {
+            cy.get('.crypto-info-name')
+                .should('be.visible')
+                .contains('Bitcoin')
+        })
+
+        it('should render the correct coin rank', () => {
+            cy.get('.crypto-info-number')
+                .should('be.visible')
+                .contains('1.')
+        })
+
+        it('should render the correct coin price', () => {
+            cy.get('.crypto-info-price')
+                .should('be.visible')
+                .contains('$9370.00')
+        })
+
+        it('should render the correct coin UX *for mobile*', () => {
+            cy.get('.crypto-tap').should('be.visible')
+            cy.get('.crypto-click').should('not.be.visible')
+        })
+
+        it('should render the correct coin UX *for desktop*', () => {
+            cy.viewport(1200, 900)
+
+            cy.get('.crypto-tap').should('not.be.visible')
+            cy.get('.crypto-click').should('be.visible')
+
+        })
+
+        it('should render the correct coin icon', () => {
+            const src = 'https://cdn.coinranking.com/Sy33Krudb/btc.svg'
+
+            cy.get('.crypto-icon').should('be.visible')
+            cy.get('.crypto-icon img')
+                .should('have.attr', 'src')
+                .should('include', src)
+        })
+
+        it('should render the correct header', () => {
+            cy.get('.cryptos-header')
+                .should('be.visible') 
+                .contains('Top 50 Cryptocurrencies')
+        })
+
+        it('should render the search bar', () => {
+            cy.get('.cryptos-search input').should('be.visible')
+        })
+
+        it('should have the correct value in the search bar', () => {
+            cy.get('.cryptos-search input').type('Test Search')
+            cy.get('.cryptos-search input')
+                .should('have.value', 'Test Search')
+        })
+
+        it('should render the back to top button', () => {
+            cy.get('.cryptos-totop')
+                .should('be.visible')
+            cy.get('.cryptos-totop span')
+                .should('be.visible')
+                .contains('Back to top')
+        })
+
+    })
+
+    describe('Cryptos details page', () => {
+
+        beforeEach(() => {
+            cy.get('.cryptos-main').click()
+        })
+    })
+
 })
