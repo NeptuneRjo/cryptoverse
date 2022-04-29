@@ -36,5 +36,132 @@ describe('News', () => {
         it('should render the news item on the homepage', () => {
             cy.get('.newsitem-main').should('be.visible')
         })
+
+        it('should render the correct news image', () => {
+            const src = 'https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg'
+
+            cy.get('.newsitem-hero img')
+                .should('be.visible')
+                .should('have.attr', 'src')
+                .should('include', src)
+        })
+
+        it('should render the correct news header', () => {
+            cy.get('.newsitem-header')
+                .should('be.visible')
+                .contains('Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?')
+        })
+
+        it('should render the correct date', () => {
+            cy.get('.newsitem-date')
+                .should('be.visible')
+                .contains('04-03-2022')
+        })
+
+        it('should render the correct UX', () => {
+            cy.get('.newsitem-tap').should('be.visible')
+
+            cy.viewport(1200, 900)
+            cy.get('.newsitem-click').should('be.visible')
+        })
+    })
+
+    describe('News page', () => {
+
+        beforeEach(() => {
+            cy.visit('http://localhost:3000/#/news')
+        })
+
+        it('should render the news page', () => {
+            cy.get('.news-main').should('be.visible')
+        })
+
+        it('should render the search bar', () => {
+            cy.get('.news-search input').should('be.visible')
+        })
+
+        it('should have the correct value in the search bar', () => {
+            cy.get('.news-search input').type('Test Search')
+            cy.get('.news-search input')
+                .should('have.value', 'Test Search')
+        })
+
+        it('should render the correct header', () => {
+            cy.get('.news-header h3')
+                .should('be.visible')
+                .contains("Today's Crypto News")
+        })
+
+        it('should render the news article', () => {
+            cy.get('.newsitem-main').should('be.visible')
+        })
+
+        it('should render the correct news image', () => {
+            const src = 'https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg'
+
+            cy.get('.newsitem-hero img')
+                .should('be.visible')
+                .should('have.attr', 'src')
+                .should('include', src)
+        })
+
+        it('should render the correct news header', () => {
+            cy.get('.newsitem-header')
+                .should('be.visible')
+                .contains('Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?')
+        })
+
+        it('should render the correct date', () => {
+            cy.get('.newsitem-date')
+                .should('be.visible')
+                .contains('04-03-2022')
+        })
+
+        it('should render the correct UX', () => {
+            cy.get('.newsitem-tap').should('be.visible')
+
+            cy.viewport(1200, 900)
+            cy.get('.newsitem-click').should('be.visible')
+        })
+    })
+
+    describe('news articles', () => {
+        beforeEach(() => {
+            cy.visit('http://localhost:3000/#/news/thai-crypto-ban-did-thailand-just-prohibit-cryptocurrencies')
+        })
+
+        it('should render the newspage', () => {
+            cy.get('.newspage-main').should('be.visible')
+        })
+
+        it('should render the correct header', () => {
+            cy.get('.newspage-header h3')
+                .should('be.visible')
+                .contains('Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?')
+        })
+
+        it('should render the disclaimer', () => {
+            cy.get('.newspage-disclaimer').should('be.visible')
+        })
+
+        it('should render the article date', () => {
+            cy.get('.newspage-date')
+                .should('be.visible')
+                .contains('04-03-2022')
+        })
+
+        it('should render the article content', () => {
+            cy.get('.newspage-content')
+                .should('be.visible')
+                .contains('description')
+        })
+
+        it('should render the original author', () => {
+            const src = 
+
+            cy.get('.newspage-author')
+                .should('be.visible')
+                .contains('View the Original Article')
+        })
     })
 })
