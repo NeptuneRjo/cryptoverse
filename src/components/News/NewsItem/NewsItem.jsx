@@ -1,6 +1,5 @@
 import React from 'react'
 import './style.css';
-import { Link } from 'react-router-dom';
 import store from '../../../store';
 
 const NewsItem = ({ news, id }) => {
@@ -30,7 +29,7 @@ const NewsItem = ({ news, id }) => {
     }
 
     return (
-        <Link to={`/news/${pageUrl}`} data-testid='link-to-article'>
+        <a href={news.articleUrl}>
             <div className="newsitem-main" onClick={() => setNewsIndex()}>
                 <div className="newsitem-hero" >
                    <img src={checkImageUrl(image)} alt="article hero"  data-testid='news-img'/>
@@ -48,7 +47,7 @@ const NewsItem = ({ news, id }) => {
                     </div>
                 </div>
             </div>
-        </Link>
+        </ a>
     )
 }
 

@@ -3,7 +3,6 @@ import { Cryptos, Home, Nav, News } from './components';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import useFetch from './api/useFetch';
 import CoinDetails from './components/Cryptos/CoinDetails/CoinDetails';
-import NewsPage from './components/News/NewsPage/NewsPage';
 
 function App() {
 
@@ -47,12 +46,6 @@ function App() {
               element={
               <News />
             } 
-            />
-            <Route  
-              path='/news/:newsId'
-              element={
-                <NewsPage />
-              }
             />
           </Routes>
         </div>

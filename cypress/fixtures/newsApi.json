@@ -6,7 +6,8 @@
             "categories": ["Other"],
             "date": "2022-04-03T23:00:00.000Z",
             "datestamp": "04-03-2022",
-            "rawDescription": "description"
+            "rawDescription": "description",
+            "articleUrl": "https://google.com"
         },
         {
             "imageUrl": "https://en-cdn.beincrypto.com/wp-content/uploads/2022/04/Thai-phone-watermarked.jpeg",
@@ -14,7 +15,8 @@
             "categories": ["Other"],
             "date": "2022-04-03T23:00:00.000Z",
             "datestamp": "04-03-2022",
-            "rawDescription": "description"
+            "rawDescription": "description",
+            "articleUrl": "https://google.com"
         }
     ],
     "isPending": false,

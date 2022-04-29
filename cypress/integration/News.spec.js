@@ -126,42 +126,9 @@ describe('News', () => {
     })
 
     describe('news articles', () => {
-        beforeEach(() => {
-            cy.visit('http://localhost:3000/#/news/thai-crypto-ban-did-thailand-just-prohibit-cryptocurrencies')
-        })
-
-        it('should render the newspage', () => {
-            cy.get('.newspage-main').should('be.visible')
-        })
-
-        it('should render the correct header', () => {
-            cy.get('.newspage-header h3')
-                .should('be.visible')
-                .contains('Thai Crypto Ban: Did Thailand Just Prohibit Cryptocurrencies?')
-        })
-
-        it('should render the disclaimer', () => {
-            cy.get('.newspage-disclaimer').should('be.visible')
-        })
-
-        it('should render the article date', () => {
-            cy.get('.newspage-date')
-                .should('be.visible')
-                .contains('04-03-2022')
-        })
-
-        it('should render the article content', () => {
-            cy.get('.newspage-content')
-                .should('be.visible')
-                .contains('description')
-        })
-
-        it('should render the original author', () => {
-            const src = 
-
-            cy.get('.newspage-author')
-                .should('be.visible')
-                .contains('View the Original Article')
+        it('should take you to the article page', () => {
+            cy.get('.newsitem-main').click({ multiple: true })
+            cy.url('https://google.com')
         })
     })
 })
