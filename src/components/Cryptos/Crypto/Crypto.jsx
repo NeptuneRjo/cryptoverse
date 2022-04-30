@@ -21,7 +21,8 @@ const Crypto = ({ coinData }) => {
   `;
 
   return (
-    <Link to={`/crypto/${coinData.uuid}`}               data-testid='crypto-item'
+    <Link to={`/crypto/${coinData.uuid}`}               
+      data-testid='crypto-item'
     >
       <CustomizedCard width={100}>
         <CardActionArea
