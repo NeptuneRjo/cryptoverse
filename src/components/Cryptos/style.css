@@ -24,24 +24,10 @@
     margin: 1rem 0;
 }
 
-#search-form {
-    border: solid 1px var(--off-white);
-
-    padding: .45rem .5rem;
-    outline: none;
-    margin-bottom: .35rem;
-    color: var(--contrast-color);
-    font-weight: bold;
-    width: 200px;
+.MuiOutlinedInput-input {
+    color: #fff;
 }
 
-#search-form::placeholder {
-    color: var(--off-white);
-}
-
-#search-form:focus {
-    border: solid 1px var(--contrast-color);
-}
 
 .cryptos-grid {
     display: grid;
@@ -51,26 +37,15 @@
     padding: 1rem 0;
 }
 
-.cryptos-totop {
-    text-align: center;
-    padding: 1rem;
-    color: var(--contrast-color);
+#outlined-search {
+    z-index: 1;
+    color: #fff;
     font-weight: bold;
-}
-
-.cryptos-totop span:hover {
-    cursor: pointer;
-    border-bottom: solid 1px var(--contrast-color);
 }
 
 @media screen and (min-width: 768px) {
     .cryptos-main {
         font-size: 1.10em;
-    }
-
-    #search-form {
-        width: 210px;
-        font-size: .85em;
     }
 
     .cryptos-grid {

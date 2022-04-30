@@ -5,6 +5,11 @@ import store from '../../store';
 import Spinner from '../../animations/Spinner/Spinner';
 import { useSelector } from 'react-redux';
 
+import { TextField } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+
+
 const Cryptos = () => {
 
   const coinApi = useSelector((state) => state.coinApi);
@@ -61,16 +66,20 @@ const Cryptos = () => {
         <h3 data-testid='cryptos-header'>Top 50 Cryptocurrencies</h3>
       </div>
       <div className="cryptos-search">
-        <label htmlFor="search-form">
-          <input 
-            type="search" 
-            name="search-form" 
-            id="search-form"
-            placeholder='Search for a coin' 
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-          />
-        </label>
+          <Box
+            component='form'
+            autoComplete='off'
+            sx={{
+              '& .MuiTextField-root': { m: 1, width: '25ch' },
+            }}
+          >
+            <TextField 
+              value={q}
+              label='Search for a coin'
+              onChange={(e) => setQ(e.target.value)}
+              id='outlined-search'
+            />
+          </Box>
       </div>
       <div className="cryptos-grid">
         {
@@ -82,9 +91,12 @@ const Cryptos = () => {
           ))
         }
       </div>
-      <div className="cryptos-totop">
-        <span onClick={scrollToTop}>Back to top</span>
-      </div>
+      <Button 
+        variant='text'
+        onClick={() => {scrollToTop()}} 
+      >
+        Back to top
+      </Button>
     </div>
   )
 }
