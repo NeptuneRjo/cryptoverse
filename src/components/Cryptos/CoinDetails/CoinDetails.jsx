@@ -6,6 +6,12 @@ import './style.css';
 import millify from 'millify';
 import { useSelector } from 'react-redux';
 
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+
+
 const CoinDetails = () => {
     const { coinId } = useParams();
     const parse = require('html-react-parser');
@@ -63,7 +69,7 @@ const CoinDetails = () => {
                 <div className="details-header" data-testid='coin-header'>
                     <h3 data-testid='coin-name'>{coin.name} Info</h3>
                 </div>
-                <div className="details-header-split">
+                {/* <div className="details-header-split">
                     <div className="details-header-left">
                         <img 
                             src={coin.iconUrl} 
@@ -76,7 +82,32 @@ const CoinDetails = () => {
                         <p data-testid='coin-change'>{coin.change}%</p>
                         <h4>Price Change</h4>
                     </div>
-                </div>
+                </div> */}
+                <Card sx={{ minWidth: '100%' }}>
+                    <CardContent>
+                        <CardMedia 
+                            component='img'
+                            image={coin.iconUrl}
+                            alt='coin icon'
+                            sx={{
+                                height: '35px',
+                                width: '35px',
+                                background: 'transparent'
+                            }}
+                        /> 
+                        <Typography variant='h6' component='div'>
+                            Rank {coin.rank}
+                        </Typography>
+                    </CardContent>
+                    <CardContent>
+                        <Typography varient='h6' component='div'>
+                            {coin.change}%
+                        </Typography>
+                        <Typography varient='h6' component='div'>
+                            Price Change
+                        </Typography>
+                    </CardContent>
+                </Card>
                 <div className="details-statistics">
                     <h3>{coin.symbol} value statistics</h3>
                     <div className="details-tousd">
