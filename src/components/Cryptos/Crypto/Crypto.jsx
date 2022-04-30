@@ -13,7 +13,7 @@ const Crypto = ({ coinData }) => {
   const CustomizedCard = styled(Card)`
     color: #fff;
     background: #303030;
-
+    height: 130px;
   `;
 
   const CustomizedCardContent = styled(CardContent)`
@@ -39,6 +39,7 @@ const Crypto = ({ coinData }) => {
               alignItems: 'center',
               justifyContent: 'center',
               width: '50%',
+              height: '100%',
               background: 'transparent'
             }}
           >
@@ -56,6 +57,7 @@ const Crypto = ({ coinData }) => {
           <CustomizedCardContent 
             sx={{
               width: '50%',
+              height: '100px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
