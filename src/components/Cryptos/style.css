@@ -1,80 +1,76 @@
 .cryptos-main {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .cryptos-header {
-    margin: 1rem 0;
-    color: var(--off-white);
-    
-    display: flex;
-    justify-content: center;
-}
+	padding-bottom: 0.25rem;
+	width: 100%;
+	margin: 1rem 0;
+	color: var(--contrast-color);
 
-.cryptos-header h3 {
-    padding-bottom: .25rem;
-    border-bottom: solid 3px var(--contrast-color);
-    width: fit-content;
+	display: flex;
+	justify-content: center;
 }
 
 .cryptos-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0;
 }
 
 #search-form {
-    border: solid 1px var(--off-white);
+	border: solid 1px var(--contrast-color);
 
-    padding: .45rem .5rem;
-    outline: none;
-    margin-bottom: .35rem;
-    color: var(--contrast-color);
-    font-weight: bold;
-    width: 200px;
+	padding: 0.45rem 0.5rem;
+	outline: none;
+	margin-bottom: 0.35rem;
+	color: var(--contrast-color);
+	font-weight: bold;
+	width: 200px;
 }
 
 #search-form::placeholder {
-    color: var(--off-white);
+	color: var(--contrast-color);
 }
 
 #search-form:focus {
-    border: solid 1px var(--contrast-color);
+	border: solid 1px var(--contrast-color);
 }
 
 .cryptos-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 0 1rem;
-    padding: 1rem 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+	margin: 0 1rem;
+	padding: 1rem 0;
 }
 
 .cryptos-totop {
-    text-align: center;
-    padding: 1rem;
-    color: var(--contrast-color);
-    font-weight: bold;
+	text-align: center;
+	padding: 1rem;
+	color: var(--contrast-color);
+	font-weight: bold;
 }
 
 .cryptos-totop span:hover {
-    cursor: pointer;
-    border-bottom: solid 1px var(--contrast-color);
+	cursor: pointer;
+	border-bottom: solid 1px var(--contrast-color);
 }
 
 @media screen and (min-width: 768px) {
-    .cryptos-main {
-        font-size: 1.10em;
-    }
+	.cryptos-main {
+		font-size: 1.1em;
+	}
 
-    #search-form {
-        width: 210px;
-        font-size: .85em;
-    }
+	#search-form {
+		width: 210px;
+		font-size: 0.85em;
+	}
 
-    .cryptos-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: .75rem;
-    }
+	.cryptos-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem;
+	}
 }
