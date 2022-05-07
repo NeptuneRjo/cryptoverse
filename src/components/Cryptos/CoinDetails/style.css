@@ -72,6 +72,10 @@
 	text-align: left;
 }
 
+.details-description p {
+	width: 100%;
+}
+
 .details-description h3 {
 	color: black;
 	margin: 1rem 0;
@@ -108,11 +112,6 @@ span {
 
 @media screen and (min-width: 768px) {
 	.details-main {
-		font-size: 1.1em;
-	}
-
-	.details-header-left img {
-		height: 40px;
-		width: 40px;
+		font-size: 1.2em;
 	}
 }
