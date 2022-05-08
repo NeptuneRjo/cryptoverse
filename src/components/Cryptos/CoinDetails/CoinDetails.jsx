@@ -81,6 +81,7 @@ const CoinDetails = () => {
 						id='dropdown'
 						value={timePeriod}
 						onChange={(e) => setTimePeriod(e.target.value)}
+						attribute='chart time period'
 					>
 						{time.map((date) => (
 							<option value={date}>{date}</option>
