@@ -32,4 +32,4 @@ Built with `React`, `React-Redux`, `CSS3`, `Millify`, and `APIs`. Tested with `J
 
 In order to create a dynamic website that relies entirely on APIs for its data,
 `Redux` was used to store the global state. `React-Router` made it easy to create unique pages for
-each coin and news article.
+each coin.
