@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Spinner from '../../../animations/Spinner/Spinner'
-import useFetch from '../../../api/useFetch'
+import fetchApi from '../../../api/fetchApi'
 import './style.css'
 import millify from 'millify'
 import { useSelector } from 'react-redux'
@@ -11,15 +11,14 @@ const CoinDetails = () => {
 	const { coinId } = useParams()
 	const parse = require('html-react-parser')
 
+	const [timePeriod, setTimePeriod] = useState('7d')
+
 	const api = {
 		coinUrl: `https://coinranking1.p.rapidapi.com/coin/${coinId}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`,
 		coinHost: 'coinranking1.p.rapidapi.com',
 
-		coinHistory: `https://coinranking1.p.rapidapi.com/coin/${coinId}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=7d`,
+		coinHistory: `https://coinranking1.p.rapidapi.com/coin/${coinId}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=${timePeriod}`,
 	}
-
-	useFetch(api.coinUrl, api.coinHost, 'COINDETAILS')
-	useFetch(api.coinHistory, api.coinHost, 'COINHISTORY')
 
 	const coinApi = useSelector((state) => state.coinDetailsApi)
 	const coinHistoryApi = useSelector((state) => state.coinHistoryApi)
@@ -42,8 +41,15 @@ const CoinDetails = () => {
 	}
 
 	useEffect(() => {
-		scrollToTop()
+		fetchApi(api.coinHistory, api.coinHost, 'COINHISTORY')
+	}, [timePeriod])
+
+	useEffect(() => {
+		fetchApi(api.coinUrl, api.coinHost, 'COINDETAILS')
+		console.log('fetch')
 	}, [])
+
+	const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y']
 
 	if (!coinApi.error === null) {
 		return (
@@ -63,12 +69,25 @@ const CoinDetails = () => {
 		<div className='details-main'>
 			<h3 className='details-header'>{coin.name} Info</h3>
 			<div className='details-graph'>
-				<h3 className='details-section-header'>30 Day Price History</h3>
+				<h3 className='details-section-header'>{timePeriod} Price History</h3>
 				<Linechart
 					coinHistory={coinHistory}
 					coinName={coin.name}
 					coinPrice={Number(coin.price).toFixed(2)}
+					timePeriod={timePeriod}
 				/>
+				<div className='details-graph-selector'>
+					<select
+						name='dropdown'
+						id='dropdown'
+						value={timePeriod}
+						onChange={(e) => setTimePeriod(e.target.value)}
+					>
+						{time.map((date) => (
+							<option value={date}>{date}</option>
+						))}
+					</select>
+				</div>
 			</div>
 			<div className='details-section'>
 				<h3 className='details-section-header'>{coin.symbol} Statistics</h3>
