@@ -148,9 +148,9 @@ const CoinDetails = () => {
 						<a href={link.url}>{link.name}</a>
 					</div>
 				))}
-				<div className='details-totop'>
-					<span onClick={scrollToTop}>Back to top</span>
-				</div>
+			</div>
+			<div className='details-totop'>
+				<span onClick={scrollToTop}>Back to top</span>
 			</div>
 		</div>
 	)
