@@ -25,7 +25,8 @@
 
 .home-item {
 	display: flex;
-	width: 95%;
+	width: 100%;
+	max-width: 60%;
 	align-items: center;
 	justify-content: space-between;
 
