@@ -15,8 +15,8 @@ Access my site at [Demo Link](https://neptunerjo.github.io/cryptoverse/)
 
 ## Screenshots
 
-![Desktop Home Page](screenshots/desktop-home.png)
-![Coin Details](screenshots/desktop-coin.png)
+![Desktop Home Page](screenshots/desktop-homepage.png)
+![Coin Details](screenshots/desktop-coindetails.png)
 
 ## Technologies
 
