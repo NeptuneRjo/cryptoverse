@@ -50,7 +50,7 @@ const Home = () => {
 				</div>
 			</div>
 			<div className='home-cryptos'>
-				<h3>Top 10 Cryptocurrencies</h3>
+				<h3 className='home-section-header'>Top 10 Cryptocurrencies</h3>
 				<div className='home-cryptos-grid'>
 					{coins.map((coin, index) => (
 						<Crypto coinData={coin} key={index} />

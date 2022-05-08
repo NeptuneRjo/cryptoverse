@@ -15,11 +15,11 @@
                 "rank": "1",
                 "24hVolume": "100",
                 "allTimeHigh": {
-                    "price": "100"
+                    "price": "101"
                 },
                 "supply": {
-                    "total": "100",
-                    "circulating": "100"
+                    "total": "102",
+                    "circulating": "103"
                 },
                 "description": "Hello, world",
                 "links": [
