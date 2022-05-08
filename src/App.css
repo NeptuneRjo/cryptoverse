@@ -1,21 +1,14 @@
 * {
-    padding: 0;
-    margin: 0;
-    background: var(--background-color);
-    font-family: var(--font-family);
+	padding: 0;
+	margin: 0;
+	background: rgb(231, 230, 230);
+	font-family: var(--font-family);
 }
 
 .app-main {
-    display: flex;
-    flex-direction: column;
-    
-    width: 100%;
-    min-height: 100vh;
-}
+	display: flex;
+	flex-direction: column;
 
-@media screen and (min-width: 1024px) {
-    .app-main {
-        display: grid;
-        grid-template-columns: 1fr 5fr;
-    }
+	width: 100%;
+	min-height: 100vh;
 }
