@@ -4,7 +4,7 @@ import './style.css'
 
 const Crypto = ({ coinData }) => {
 	return (
-		<Link to={`/crypto/${coinData.uuid}`}>
+		<Link to={`/crypto/${coinData.uuid}`} className='crypto-action'>
 			<div className='crypto-main'>
 				<div className='crypto-info'>
 					<div className='crypto-info-number'>{coinData.rank}.</div>

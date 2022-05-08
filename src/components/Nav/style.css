@@ -68,7 +68,7 @@ svg {
 	.nav-desktop-main {
 		display: flex;
 		background: var(--contrast-color);
-		height: 5vh;
+		height: 6vh;
 		justify-content: flex-end;
 		align-items: center;
 		width: 100%;
@@ -87,5 +87,16 @@ svg {
 		background: var(--contrast-color);
 		font-weight: bold;
 		font-size: 1.1em;
+	}
+
+	.nav-desktop-menu-item a {
+		color: var(--off-white);
+		text-decoration: none;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	.nav-desktop-main {
+		font-size: 1.2em;
 	}
 }
