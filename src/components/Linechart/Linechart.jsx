@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Line } from 'react-chartjs-2'
 import Chart from 'chart.js/auto'
 
 import './style.css'
 
-const Linechart = ({ coinHistory, coinName, currentPrice }) => {
+const Linechart = ({ coinHistory }) => {
 	const coinPrice = []
 	const coinTimestamp = []
 
