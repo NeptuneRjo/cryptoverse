@@ -5,6 +5,7 @@ import useFetch from '../../../api/useFetch'
 import './style.css'
 import millify from 'millify'
 import { useSelector } from 'react-redux'
+import Linechart from '../../Linechart/Linechart'
 
 const CoinDetails = () => {
 	const { coinId } = useParams()
@@ -13,16 +14,18 @@ const CoinDetails = () => {
 	const api = {
 		coinUrl: `https://coinranking1.p.rapidapi.com/coin/${coinId}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`,
 		coinHost: 'coinranking1.p.rapidapi.com',
+
+		coinHistory: `https://coinranking1.p.rapidapi.com/coin/${coinId}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=7d`,
 	}
 
 	useFetch(api.coinUrl, api.coinHost, 'COINDETAILS')
+	useFetch(api.coinHistory, api.coinHost, 'COINHISTORY')
+
 	const coinApi = useSelector((state) => state.coinDetailsApi)
+	const coinHistoryApi = useSelector((state) => state.coinHistoryApi)
 
-	let coin
-
-	if (!coinApi.isPending) {
-		coin = coinApi.data.data.coin
-	}
+	let coin = coinApi?.data?.data?.coin
+	let coinHistory = coinHistoryApi?.data?.data
 
 	const toCoinPrice = (coinPrice) => {
 		if (Number(coinPrice) < 1) {
@@ -59,6 +62,14 @@ const CoinDetails = () => {
 	return (
 		<div className='details-main'>
 			<h3 className='details-header'>{coin.name} Info</h3>
+			<div className='details-graph'>
+				<h3 className='details-section-header'>30 Day Price History</h3>
+				<Linechart
+					coinHistory={coinHistory}
+					coinName={coin.name}
+					coinPrice={Number(coin.price).toFixed(2)}
+				/>
+			</div>
 			<div className='details-section'>
 				<h3 className='details-section-header'>{coin.symbol} Statistics</h3>
 				<div className='details-item'>

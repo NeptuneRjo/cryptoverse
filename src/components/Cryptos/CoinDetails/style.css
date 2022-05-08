@@ -12,6 +12,13 @@
 	justify-content: center;
 }
 
+.details-graph {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .details-section {
 	display: flex;
 	flex-direction: column;
