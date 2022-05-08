@@ -110,7 +110,9 @@
 }
 
 #dropdown {
-	color: var(--off-white);
+	color: black;
+	font-size: 0.85em;
+	padding-left: 0.5rem;
 	width: 150px;
 	height: 30px;
 	background: var(--contrast-color);
