@@ -13,7 +13,7 @@
 }
 
 .details-graph {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -102,6 +102,21 @@
 	margin: 1rem 0;
 }
 
+.details-graph-selector {
+	width: 90%;
+	display: flex;
+	justify-content: flex-end;
+	padding: 1rem 0;
+}
+
+#dropdown {
+	color: var(--off-white);
+	width: 150px;
+	height: 30px;
+	background: var(--contrast-color);
+	border: solid 1px var(--contrast-color);
+}
+
 .details-totop span:hover {
 	cursor: pointer;
 	border-bottom: solid 1px var(--contrast-color);
@@ -114,5 +129,11 @@ span {
 @media screen and (min-width: 768px) {
 	.details-main {
 		font-size: 1.2em;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.details-graph {
+		display: flex;
 	}
 }
