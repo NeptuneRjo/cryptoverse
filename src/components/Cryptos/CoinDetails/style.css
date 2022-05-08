@@ -12,12 +12,6 @@
 	justify-content: center;
 }
 
-.details-header h3 {
-	padding-bottom: 0.25rem;
-	border-bottom: solid 3px var(--contrast-color);
-	width: fit-content;
-}
-
 .details-section {
 	display: flex;
 	flex-direction: column;
