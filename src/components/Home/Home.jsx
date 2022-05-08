@@ -2,7 +2,6 @@ import React from 'react'
 import './style.css'
 import Crypto from '../Cryptos/Crypto/Crypto'
 import store from '../../store'
-import NewsItem from '../News/NewsItem/NewsItem'
 import { useEffect } from 'react'
 import Spinner from '../../animations/Spinner/Spinner'
 import millify from 'millify'
@@ -10,35 +9,23 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {
 	const coinApi = useSelector((state) => state.coinApi)
-	const newsApi = useSelector((state) => state.newsApi)
 
 	const coinData = coinApi.data
 	const coinPending = coinApi.isPending
 
-	const newsData = newsApi.data
-	const newsPending = newsApi.isPending
-
 	let mainStats
 	let coins
 
-	let news
-	let news2
-
-	if (!coinPending && !newsPending) {
+	if (!coinPending) {
 		mainStats = coinData.data.stats
 		coins = coinData.data.coins.slice(0, 10)
-
-		if (newsData !== null) {
-			news = newsData.news[0]
-			news2 = newsData.news[1]
-		}
 	}
 
 	useEffect(() => {
 		store.dispatch({ type: 'SET_NAVBAR', payload: 'home' })
 	}, [])
 
-	if (coinPending || newsPending) {
+	if (coinPending) {
 		return (
 			<div className='home-stats-pending'>
 				<Spinner speed={5} customText={'Loading...'} />
