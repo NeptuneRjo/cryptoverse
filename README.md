@@ -1,43 +1,32 @@
-## Project Title
+## Cyptoverse
 
-Cryptoverse, a cryptocurrency database. 
+Cryptoverse is a fully responsive, dynamic web application that uses API's to create a real-time database of Cryptocurrencies.
 
 ## Demo Link:
 
 Access my site at [Demo Link](https://neptunerjo.github.io/cryptoverse/)
 
-## Table of Content: 
+## Table of Content:
 
-- [About The App](#about-the-app)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Approach](#approach)
-
-## About the App
-
-Cryptoverse is a fully responsive, dynamic web application that uses
-multiple API's to create a real-time database of Cryptocurrencies
-and Crypto-related news.
-
 
 ## Screenshots
 
 ![Desktop Home Page](screenshots/desktop-home.png)
 ![Coin Details](screenshots/desktop-coin.png)
 
-
 ## Technologies
 
 Built with `React`, `React-Redux`, `CSS3`, `Millify`, and `APIs`. Tested with `Jest` and `React-Testing-Library`.
-
 
 ## Setup
 
 - Download or clone the repository
 - Run `npm install`
 - Run `npm start` to view a local version on `http://localhost:3000/`
-
 
 ## Approach
 
