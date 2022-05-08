@@ -1,8 +1,9 @@
 import './App.css'
 import { Cryptos, Home, Nav } from './components'
 import { HashRouter, Routes, Route } from 'react-router-dom'
-import useFetch from './api/useFetch'
+import fetchApi from './api/fetchApi'
 import CoinDetails from './components/Cryptos/CoinDetails/CoinDetails'
+import { useEffect } from 'react'
 
 function App() {
 	const api = {
@@ -11,7 +12,9 @@ function App() {
 		coinHost: process.env.REACT_APP_COIN_HOST,
 	}
 
-	useFetch(api.coinUrl, api.coinHost, 'COIN')
+	useEffect(() => {
+		fetchApi(api.coinUrl, api.coinHost, 'COIN')
+	}, [])
 
 	return (
 		<HashRouter>
