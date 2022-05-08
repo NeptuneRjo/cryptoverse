@@ -1,62 +1,51 @@
 .crypto-main {
-    border-bottom: solid 5px var(--contrast-color);
-    border-radius: 0px 0px 8px 8px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
-    background: var(--dark-gray);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
+	background: var(--contrast-color);
+	height: 150px;
 
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem;
+}
+
+.crypto-main:hover {
+	box-shadow: 0px 0px 8px rgba(0, 0, 0);
 }
 
 .crypto-info > * {
-    background: var(--dark-gray);
-    color: var(--off-white);
+	background: transparent;
+	color: var(--off-white);
 }
 
 .crypto-info {
-    margin: 1rem 0;
-    padding-left: 1rem;
-    background: transparent;
+	margin: 1rem 0;
+	background: transparent;
 }
 
 .crypto-info-number {
-    color: var(--off-white-hover);
-    font-weight: bold;
+	color: var(--off-white-hover);
+	font-weight: bold;
 }
 
 .crypto-info-name {
-    font-weight: bold;
-    font-size: 18px;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .crypto-icon {
-    background: transparent;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.crypto-tap, .crypto-click {
-    color: var(--contrast-color);
-    font-size: .75em;
+	background: transparent;
+	display: flex;
+	align-items: center;
 }
 
 .crypto-click {
-    display: none;
+	color: var(--off-white);
+	font-size: 0.75em;
 }
 
 img {
-    background: transparent;
-    height: 35px;
-    width: 35px;
-}
-
-@media screen and (min-width: 1024px) {
-    .crypto-click {
-        display: block;
-    }
-
-    .crypto-tap {
-        display: none;
-    }
+	background: transparent;
+	height: 35px;
+	width: 35px;
 }
