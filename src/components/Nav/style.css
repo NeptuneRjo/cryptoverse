@@ -43,6 +43,10 @@
 	background: transparent;
 }
 
+.nav-mobile-menu-item a {
+	text-decoration: none;
+}
+
 .nav-mobile-menu-item div {
 	background: transparent;
 	color: var(--contrast-color);
