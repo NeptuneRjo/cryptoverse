@@ -1,17 +1,38 @@
-import "./style.css";
+import './style.css'
 
 export default function Spinner(props) {
-    return (
-        <div className="spinner-container">
-     
-            <svg width="100%"  viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                <g id="spinner">
-                    <circle id="bottom" cx="138" cy="138" r="114" stroke="#222831" strokeWidth="18" />
-                    <circle id="upper" cx="138" cy="138" r="123" stroke="#72BBFF" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="373 100" style={{animationDuration:props.speed+"s"}}/>
-                </g>
-            </svg>
-            <p data-testid='home-loading-text'>{props.customText}</p>
-            </div>
-
-    )
+	return (
+		<div className='spinner-container'>
+			<svg
+				width='100%'
+				viewBox='0 0 276 276'
+				fill='none'
+				xmlns='http://www.w3.org/2000/svg'
+			>
+				<g id='spinner'>
+					<circle
+						id='bottom'
+						cx='138'
+						cy='138'
+						r='114'
+						stroke='#0d47a1'
+						strokeWidth='18'
+					/>
+					<circle
+						id='upper'
+						cx='138'
+						cy='138'
+						r='123'
+						stroke='#0d47a1'
+						strokeWidth='30'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+						strokeDasharray='373 100'
+						style={{ animationDuration: props.speed + 's' }}
+					/>
+				</g>
+			</svg>
+			<p data-testid='home-loading-text'>{props.customText}</p>
+		</div>
+	)
 }
