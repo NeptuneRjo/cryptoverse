@@ -23,7 +23,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 3rem 1rem;
+	margin: 3rem 0;
 	background: transparent;
 }
 
@@ -70,7 +70,7 @@
 	align-items: center;
 	margin: 0.5rem 1rem;
 	background: transparent;
-	text-align: left;
+	text-align: center;
 }
 
 .details-description p {
@@ -81,7 +81,7 @@
 	color: black;
 	margin: 1rem 0;
 	background: transparent;
-	text-align: left;
+	text-align: center;
 	width: 100%;
 }
 
@@ -121,7 +121,7 @@
 
 .details-totop {
 	text-align: center;
-	padding: 1rem;
+	padding: 1rem 0;
 	color: var(--contrast-color);
 	font-weight: bold;
 }
