@@ -16,11 +16,11 @@ Access my site at [Demo Link](https://neptunerjo.github.io/cryptoverse/)
 ## Screenshots
 
 ![Desktop Home Page](screenshots/desktop-homepage.png)
-![Coin Details](screenshots/desktop-coindetails.png)
+![Coin Details](screenshots/desktop-details.png)
 
 ## Technologies
 
-Built with `React`, `React-Redux`, `CSS3`, `Millify`, and `APIs`. Tested with `Jest`, `React-Testing-Library`, and `cypress`.
+Built with `React`, `CSS3`, `Millify`, `ChartJS`, and `CoinRanking API`. Tested with `Cypress`.
 
 ## Setup
 
@@ -36,6 +36,10 @@ Built with `React`, `React-Redux`, `CSS3`, `Millify`, and `APIs`. Tested with `J
 
 ## Approach
 
-In order to create a dynamic website that relies entirely on APIs for its data,
-`Redux` was used to store the global state. `React-Router` made it easy to create unique pages for
-each coin.
+Utilized the CoinRanking API to supply the frontend with statistics, coins, and coin data.
+
+To minimize the number of API calls made during the app's use, all of the general data (coins, statistics) is stored globally.
+When a user clicks on a coin, the application fetches the data on said coin, which supplies all of the data on the info page.
+
+To create a more interactive user experience, ChartJS was used to build a up-to-date line graph depicting the coin's price history.
+Users can choose to view price history of the coin from the past 3 minutes to 5 years.
