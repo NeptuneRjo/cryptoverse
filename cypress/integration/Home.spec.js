@@ -45,4 +45,6 @@ const HomeTestSuite = () => {
 	})
 }
 
+HomeTestSuite()
+
 export default HomeTestSuite

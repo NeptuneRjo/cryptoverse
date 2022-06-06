@@ -123,4 +123,6 @@ const NavbarTestSuite = () => {
 	})
 }
 
+NavbarTestSuite()
+
 export default NavbarTestSuite
