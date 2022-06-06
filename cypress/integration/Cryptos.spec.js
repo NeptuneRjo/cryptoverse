@@ -1,27 +1,11 @@
-const urls = [
-	'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0',
-
-	'https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h',
-]
+import { api_intercept, mock_data_check } from './constants/exports'
 
 describe('Cryptos', () => {
 	beforeEach(() => {
-		cy.intercept('GET', urls[0], { fixture: 'coinApi.json' })
-		cy.intercept('GET', urls[1], { fixture: 'coinDetailsApi.json' })
-
-		cy.visit('http://localhost:3000')
+		api_intercept()
 	})
 
-	it('should render the mock data', () => {
-		// This test is used on each integration test
-		// to verify that the app is not using the servers
-
-		// App is rendered
-		cy.get('.crypto-main').should('be.visible')
-
-		// The correct content is passed
-		cy.get('#total-cryptos').should('be.visible').contains('3')
-	})
+	mock_data_check()
 
 	describe('Home page', () => {
 		it('should render the *single* coin on the homepage', () => {
