@@ -9,6 +9,10 @@ const NavbarTestSuite = () => {
 		mock_data_check()
 
 		describe('Mobile Nav', () => {
+			beforeEach(() => {
+				cy.reload()
+			})
+
 			it('should render the mobile nav', () => {
 				cy.get('.nav-mobile-main').should('be.visible')
 			})
@@ -28,7 +32,7 @@ const NavbarTestSuite = () => {
 
 			it('should render the menu if the toggle is clicked', () => {
 				cy.get('.nav-mobile-toggle svg').click()
-				cy.get('.nav-mobile-menu').should('be.visible')
+				cy.get('.nav-mobile-menu').scrollIntoView().should('be.visible')
 			})
 
 			it('should close the menu if toggled again', () => {
