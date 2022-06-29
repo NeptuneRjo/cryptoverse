@@ -4,7 +4,7 @@ Cryptoverse is a fully responsive, dynamic web application that uses API's to cr
 
 ## Demo Link:
 
-Access my site at [Demo Link](https://neptunerjo.github.io/cryptoverse/)
+Access my site [here](https://neptunerjo.github.io/cryptoverse/)
 
 ## Table of Content:
 
